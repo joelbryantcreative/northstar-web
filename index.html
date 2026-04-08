@@ -34,14 +34,14 @@ body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:28px 6vw;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:36px 6vw;display:flex;justify-content:space-between;align-items:center;transition:all 0.4s;}
 nav.scrolled{background:rgba(28,22,17,0.97);backdrop-filter:blur(12px);padding:18px 6vw;border-bottom:1px solid var(--border);}
-.nav-name{font-family:var(--sans);font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream2);text-decoration:none;transition:color 0.2s;}
+.nav-name{font-family:var(--sans);font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:color 0.2s;}
 .nav-name:hover{color:var(--cream);}
 .nav-links{display:flex;gap:28px;align-items:center;}
-.nav-link{font-family:var(--sans);font-size:0.68rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream3);text-decoration:none;transition:color 0.2s;}
+.nav-link{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:color 0.2s;}
 .nav-link:hover{color:var(--cream);}
-.nav-cta{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid rgba(230,195,133,0.3);padding:8px 16px;transition:all 0.2s;}
+.nav-cta{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid rgba(244,239,230,0.5);padding:8px 18px;transition:all 0.2s;}
 .nav-cta:hover{background:var(--golddim);border-color:var(--gold);}
 
 /* ── HERO ── */
