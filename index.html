@@ -245,17 +245,20 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
 /* ── WORK TABS ── */
 .work-tabs{background:var(--bg);border-top:1px solid var(--border);}
+.tab-radio{display:none;}
 .wt-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px;flex-wrap:wrap;}
 .wt-heading-block{flex:1;min-width:280px;}
 .wt-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;color:var(--cream);}
 .wt-headline em{font-style:italic;color:var(--gold);}
 .wt-tabs{display:flex;gap:0;border:1px solid var(--border2);align-self:flex-end;flex-shrink:0;}
-.wt-tab{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;background:transparent;color:rgba(244,239,230,0.45);border:none;cursor:pointer;transition:all 0.2s;position:relative;}
+.wt-tab{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;background:transparent;color:rgba(244,239,230,0.45);cursor:pointer;transition:all 0.2s;}
 .wt-tab+.wt-tab{border-left:1px solid var(--border2);}
-.wt-tab.active{background:var(--gold);color:var(--bg);}
-.wt-tab:not(.active):hover{color:var(--cream);background:rgba(244,239,230,0.04);}
+.wt-tab:hover{color:var(--cream);background:rgba(244,239,230,0.04);}
 .wt-panel{display:none;}
-.wt-panel.active{display:block;}
+#tab-doc:checked ~ .wt-header label[for="tab-doc"],
+#tab-brand:checked ~ .wt-header label[for="tab-brand"]{background:var(--gold);color:var(--bg);}
+#tab-doc:checked ~ #wt-documentary{display:block;}
+#tab-brand:checked ~ #wt-brand{display:block;}
 
 /* ── TWO-DOOR WORK ENTRY ── */
 .work-entry{background:var(--bg);border-top:1px solid var(--border);padding:120px 6vw;}
@@ -409,19 +412,22 @@ section, .sec, .cred-strip, .learn-transition, footer,
 <section class="sec work-tabs" id="work">
   <div class="wrap">
 
+    <input type="radio" id="tab-doc" name="work-tabs" class="tab-radio" checked>
+    <input type="radio" id="tab-brand" name="work-tabs" class="tab-radio">
+
     <div class="wt-header">
       <div class="wt-heading-block">
         <p class="tag-label-light reveal">The work</p>
         <h2 class="wt-headline reveal">Everything I've <em>made.</em></h2>
       </div>
       <div class="wt-tabs">
-        <button class="wt-tab active" data-tab="documentary">Documentary & Storytelling</button>
-        <button class="wt-tab" data-tab="brand">Brand & Commercial</button>
+        <label class="wt-tab" for="tab-doc">Documentary & Storytelling</label>
+        <label class="wt-tab" for="tab-brand">Brand & Commercial</label>
       </div>
     </div>
 
     <!-- ── DOCUMENTARY PANEL ── -->
-    <div class="wt-panel" id="wt-documentary" style="display:block;">
+    <div class="wt-panel" id="wt-documentary">
       <div class="film-cards">
 
         <div class="film-card reveal">
@@ -490,7 +496,7 @@ section, .sec, .cred-strip, .learn-transition, footer,
     </div>
 
     <!-- ── BRAND PANEL ── -->
-    <div class="wt-panel" id="wt-brand" style="display:none;">
+    <div class="wt-panel" id="wt-brand">
       <div class="brand-grid">
 
         <div class="brand-card">
@@ -840,14 +846,6 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-document.querySelectorAll('.wt-tab').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.wt-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.wt-panel').forEach(p=>p.style.display='none');
-    btn.classList.add('active');
-    document.getElementById('wt-'+btn.dataset.tab).style.display='block';
-  });
-});
 </script>
 </body>
 </html>
