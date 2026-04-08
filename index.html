@@ -120,15 +120,15 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 .portfolio-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:16px;color:var(--cream);}
 .portfolio-headline em{font-style:italic;color:var(--gold);}
 .portfolio-sub{font-size:0.93rem;line-height:1.85;color:var(--cream2);}
-.film-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
-.film-card{display:grid;grid-template-columns:380px 1fr;gap:0;background:var(--bg);transition:background 0.3s;position:relative;overflow:hidden;}
+.film-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.film-card{display:flex;flex-direction:column;background:var(--bg);transition:background 0.3s;position:relative;overflow:hidden;}
 .film-card:hover{background:var(--bg2);}
-.film-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform 0.4s ease;}
-.film-card:hover::before{transform:scaleY(1);}
-.fc-image{overflow:hidden;position:relative;background:var(--bg3);align-self:stretch;}
+.film-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
+.film-card:hover::before{opacity:1;}
+.fc-image{aspect-ratio:16/9;overflow:hidden;position:relative;background:var(--bg3);flex-shrink:0;}
 .fc-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
 .film-card:hover .fc-image img{transform:scale(1.04);}
-.fc-body{padding:48px 52px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
+.fc-body{padding:32px 36px;display:flex;flex-direction:column;flex:1;border-top:1px solid var(--border);}
 .fc-type{font-family:var(--sans);font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.9;margin-bottom:14px;}
 .fc-title{font-family:var(--serif);font-size:clamp(1.8rem,2.5vw,2.8rem);font-weight:400;color:var(--cream);margin-bottom:8px;line-height:1.1;}
 .fc-tagline{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--gold);opacity:0.75;margin-bottom:20px;}
@@ -192,7 +192,6 @@ footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-
   .about-grid,.fw-grid,.lt-inner{grid-template-columns:1fr;gap:52px;}
   .cd-grid{grid-template-columns:1fr;}
   .film-card{grid-template-columns:1fr;}
-  .fc-image{aspect-ratio:16/9;}
   .tl-item{grid-template-columns:80px 1fr;}
   nav .nav-links .nav-link:not(.nav-cta){display:none;}
 }
@@ -213,7 +212,31 @@ section, .sec, .cred-strip, .learn-transition, footer,
 }
 
 
-/* ── BRAND & COMMERCIAL WORK ── */
+/* ── TWO-DOOR WORK ENTRY ── */
+.work-entry{background:var(--bg);border-top:1px solid var(--border);padding:120px 6vw;}
+.work-entry-intro{max-width:680px;margin-bottom:64px;}
+.work-entry-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:16px;color:var(--cream);}
+.work-entry-headline em{font-style:italic;color:var(--gold);}
+.work-entry-sub{font-size:0.93rem;line-height:1.85;color:var(--cream2);}
+.work-doors{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.work-door{background:var(--bg);padding:56px 52px;display:flex;flex-direction:column;justify-content:space-between;min-height:320px;position:relative;overflow:hidden;text-decoration:none;cursor:pointer;transition:background 0.3s;}
+.work-door:hover{background:var(--bg2);}
+.work-door::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
+.work-door:hover::before{opacity:1;}
+.work-door-primary::after{content:'Primary focus';position:absolute;top:28px;right:28px;font-family:var(--sans);font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(230,195,133,0.25);padding:4px 10px;}
+.door-eyebrow{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;}
+.door-title{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,2.8vw,3.2rem);line-height:1.05;color:var(--cream);margin-bottom:16px;}
+.door-title em{font-style:italic;color:var(--gold);}
+.door-desc{font-size:0.87rem;line-height:1.8;color:var(--cream2);max-width:360px;}
+.door-footer{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid var(--border);margin-top:32px;}
+.door-items{display:flex;flex-direction:column;gap:5px;}
+.door-item{font-family:var(--sans);font-size:0.62rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);display:flex;align-items:center;gap:8px;}
+.door-item::before{content:'';width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:0.5;flex-shrink:0;}
+.door-arrow{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--gold);opacity:0.5;transition:opacity 0.3s,transform 0.3s;}
+.work-door:hover .door-arrow{opacity:1;transform:translateY(4px);}
+@media(max-width:960px){.work-doors{grid-template-columns:1fr;}}
+
+
 .brand-work{border-top:1px solid var(--border);}
 .brand-intro{max-width:680px;margin-bottom:64px;}
 .brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
@@ -284,7 +307,7 @@ section, .sec, .cred-strip, .learn-transition, footer,
 <nav id="nav">
   <a href="#" class="nav-name">Joel Bryant</a>
   <div class="nav-links">
-    <a href="#portfolio" class="nav-link">Work</a>
+    <a href="#work" class="nav-link">Work</a>
     <a href="#about" class="nav-link">About</a>
     <a href="apply.html" class="nav-link nav-cta">Learn from me</a>
   </div>
@@ -332,6 +355,52 @@ section, .sec, .cred-strip, .learn-transition, footer,
     <div class="about-img reveal">
       <img src="images/joel-dp.jpg" alt="Joel Bryant">
       <div class="about-img-caption">Byron Bay, Australia · 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORK ENTRY ── -->
+<section class="work-entry" id="work">
+  <div class="wrap">
+    <div class="work-entry-intro">
+      <p class="tag-label-light reveal">The work</p>
+      <h2 class="work-entry-headline reveal">Two kinds of <em>work.</em></h2>
+      <p class="work-entry-sub reveal">Documentary filmmaking is the foundation. Brand and commercial work is where that craft meets the real world. Both are made with the same level of intention.</p>
+    </div>
+    <div class="work-doors">
+
+      <a class="work-door work-door-primary reveal" href="#portfolio">
+        <div>
+          <p class="door-eyebrow">Documentary & Storytelling</p>
+          <h3 class="door-title">Films that go<br>beneath the <em>surface.</em></h3>
+          <p class="door-desc">Long-form documentary work built around meaning, craft, and the subjects that deserve more than surface treatment. Festival-selected. Internationally screened.</p>
+        </div>
+        <div class="door-footer">
+          <div class="door-items">
+            <span class="door-item">Flowing Wood — BBFF2025 Winner</span>
+            <span class="door-item">Koud Retreat</span>
+            <span class="door-item">No Taps Kenya</span>
+          </div>
+          <span class="door-arrow">↓</span>
+        </div>
+      </a>
+
+      <a class="work-door reveal" href="#brand-work">
+        <div>
+          <p class="door-eyebrow">Brand & Commercial</p>
+          <h3 class="door-title">Cinematic work<br>for brands that <em>matter.</em></h3>
+          <p class="door-desc">Shorter-form commercial storytelling for businesses, founders, and organisations with something real to say. Documentary depth applied to commercial briefs.</p>
+        </div>
+        <div class="door-footer">
+          <div class="door-items">
+            <span class="door-item">Bytropic Nutrition</span>
+            <span class="door-item">Rogue Watches</span>
+            <span class="door-item">Grün Resort Bali</span>
+          </div>
+          <span class="door-arrow">↓</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -400,10 +469,7 @@ section, .sec, .cred-strip, .learn-transition, footer,
       <!-- NO TAPS KENYA -->
       <div class="film-card reveal">
         <div class="fc-image">
-          <!-- Add image: <img src="images/no-taps-kenya.jpg" alt="No Taps Kenya"> -->
-          <div class="fc-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5" opacity="0.08"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
-          </div>
+          <img src="images/Kenya-placeholder.jpg" alt="No Taps Kenya">
         </div>
         <div class="fc-body">
           <p class="fc-type">Foundation Documentary</p>
