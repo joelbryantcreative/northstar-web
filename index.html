@@ -138,7 +138,7 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 
 .tl-polaroid-img{aspect-ratio:1;overflow:hidden;background:#c8bfb0;width:100%;display:flex;align-items:center;justify-content:center;}
 .tl-polaroid-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.tl-polaroid-caption{font-family:'MarkerMark',cursive;font-style:normal;font-size:1.4rem;color:rgba(20,15,10,0.85);text-align:center;display:flex;align-items:center;justify-content:center;height:64px;padding:0 10px;}
+.tl-polaroid-caption{font-family:'MarkerMark',cursive;font-style:normal;font-size:1.4rem;color:rgba(20,15,10,0.85);text-align:center;display:flex;align-items:center;justify-content:center;height:64px;padding:0 10px;margin-top:-8px;}
 @media(max-width:960px){
   .tl-spine::before{left:20px;}
   .tl-item,.tl-item.right{grid-template-columns:40px 1fr;}
@@ -615,94 +615,6 @@ section, .sec, .cred-strip, .learn-transition, footer,
   </div>
 </section>
 
-<!-- ── CREATIVE DIRECTION ── -->
-<section class="sec cd" id="creative-direction">
-  <div class="wrap">
-    <div class="cd-intro">
-      <p class="tag-label-light reveal">Creative Direction</p>
-      <h2 class="cd-headline reveal">The vision behind<br><em>the work.</em></h2>
-      <p class="cd-body reveal">Alongside my documentary practice, I work as Creative Director for some of the world's most-watched YouTube creators and personal brands. My role goes beyond filming — I shape the entire visual language, narrative strategy, and creative identity that turns an audience into a community. I bring documentary-level craft to content that needs to perform at scale.</p>
-    </div>
-    <div class="cd-clients reveal">
-      <div class="cd-client-card">
-        <div class="cd-client-top">
-          <div class="cd-client-meta">
-            <p class="cd-client-eyebrow">Creative Director</p>
-            <h3 class="cd-client-name">Brodie Moss</h3>
-            <p class="cd-client-channel">YBS Youngbloods</p>
-          </div>
-          <div class="cd-client-stat">
-            <div class="cd-stat-num">M+</div>
-            <p class="cd-stat-label">Subscribers worldwide</p>
-          </div>
-        </div>
-        <p class="cd-client-body">Creative Director for one of YouTube's most successful ocean adventure channels. Responsible for shaping the visual identity, narrative structure, and cinematic quality that has built a global audience of millions. Brodie's content reaches more people in a week than most films reach in a lifetime — and the craft behind it is intentional.</p>
-        <div class="cd-client-tags">
-          <span class="cd-tag">Visual Identity</span>
-          <span class="cd-tag">Narrative Strategy</span>
-          <span class="cd-tag">Cinematic Direction</span>
-          <span class="cd-tag">YouTube</span>
-        </div>
-        <a href="#" class="cd-client-link" target="_blank" rel="noopener">View channel ↗</a>
-      </div>
-      <div class="cd-client-card">
-        <div class="cd-client-top">
-          <div class="cd-client-meta">
-            <p class="cd-client-eyebrow">Lead Videographer & Editor</p>
-            <h3 class="cd-client-name">Wade Pappenfus</h3>
-            <p class="cd-client-channel">YouTube Creator</p>
-          </div>
-          <div class="cd-client-stat">
-            <div class="cd-stat-num">25K<span style="font-size:1.2rem;opacity:0.5;margin:0 6px;">→</span>1M+</div>
-            <p class="cd-stat-label">Subscribers — built with Joel</p>
-          </div>
-        </div>
-        <p class="cd-client-body">Lead Videographer and Editor for Wade's channel from its earliest days, growing the audience from 25,000 to over one million subscribers. This growth wasn't accidental — it came from understanding what makes people stay, share, and come back. The same documentary storytelling instincts that win festival selections also build audiences at scale.</p>
-        <div class="cd-client-tags">
-          <span class="cd-tag">Videography</span>
-          <span class="cd-tag">Editing</span>
-          <span class="cd-tag">Channel Growth</span>
-          <span class="cd-tag">YouTube</span>
-        </div>
-        <a href="#" class="cd-client-link" target="_blank" rel="noopener">View channel ↗</a>
-      </div>
-    </div>
-    <div class="cd-what reveal">
-      <p class="cd-what-label">What creative direction actually means</p>
-      <div class="cd-what-grid">
-        <div class="cd-what-item">
-          <div class="cd-what-dot"></div>
-          <div>
-            <p class="cd-what-title">Visual identity</p>
-            <p class="cd-what-desc">Defining the colour language, shot style, pacing, and aesthetic that makes a channel unmistakably itself.</p>
-          </div>
-        </div>
-        <div class="cd-what-item">
-          <div class="cd-what-dot"></div>
-          <div>
-            <p class="cd-what-title">Narrative strategy</p>
-            <p class="cd-what-desc">Structuring content so it pulls people in, holds them, and leaves them wanting the next one. Documentary technique applied to YouTube.</p>
-          </div>
-        </div>
-        <div class="cd-what-item">
-          <div class="cd-what-dot"></div>
-          <div>
-            <p class="cd-what-title">Audience growth</p>
-            <p class="cd-what-desc">Content that earns an audience through quality, not hacks. The kind of growth that compounds because people genuinely care.</p>
-          </div>
-        </div>
-        <div class="cd-what-item">
-          <div class="cd-what-dot"></div>
-          <div>
-            <p class="cd-what-title">Brand positioning</p>
-            <p class="cd-what-desc">Helping creators understand what they stand for and how to express it — so their content attracts the right people at scale.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── JOURNEY + LEARN ── -->
 <section class="sec timeline" id="journey">
   <div class="wrap">
@@ -928,14 +840,6 @@ document.querySelectorAll('.tl-polaroid').forEach(p=>{
   polaroidObs.observe(p);
 });
 
-document.querySelectorAll('.wt-tab').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.wt-tab').forEach(t=>t.classList.remove('active'));
-    document.querySelectorAll('.wt-panel').forEach(p=>p.style.display='none');
-    btn.classList.add('active');
-    document.getElementById('wt-'+btn.dataset.tab).style.display='block';
-  });
-});
 </script>
 </body>
 </html>
