@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joel Bryant — Documentary Filmmaker & Creative Director</title>
-<!-- DM Mono removed — using SF Pro Display for all UI text -->
 <style>
 
 @font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -21,12 +20,12 @@
 
 :root {
   --bg: #28221b; --bg2: #3d3530; --bg3: #1e1e1e;
-  --cream: #f4efe6; --cream2: rgba(244,239,230,0.55); --cream3: rgba(244,239,230,0.25);
+  --cream: #f4efe6; --cream2: rgba(244,239,230,0.85); --cream3: rgba(244,239,230,0.65);
   --gold: #e6c385; --golddim: rgba(230,195,133,0.12); --stone: #a99880;
   --border: rgba(244,239,230,0.08); --border2: rgba(244,239,230,0.22);
   --serif: 'Canela Text', Georgia, serif;
   --sans: 'SF Pro Display', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
+  --amber: #a07830;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -35,16 +34,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;o
 
 /* ── NAV ── */
 nav{position:absolute;top:0;left:0;right:0;z-index:100;padding:44px 46px;display:flex;justify-content:space-between;align-items:center;}
-.nav-name{font-family:var(--sans);font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:color 0.2s;}
-.nav-name:hover{color:var(--cream);}
+.nav-name{font-family:var(--sans);font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;}
 .nav-links{display:flex;gap:28px;align-items:center;}
-.nav-link{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:color 0.2s;}
-.nav-link:hover{color:var(--cream);}
+.nav-link{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:opacity 0.2s;}
+.nav-link:hover{opacity:0.6;}
 .nav-cta{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid rgba(244,239,230,0.5);padding:8px 18px;transition:all 0.2s;}
-.nav-cta:hover{background:var(--golddim);border-color:var(--gold);}
+.nav-cta:hover{background:rgba(244,239,230,0.1);}
 
 /* ── HERO ── */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:visible;padding:20px;background:#f4efe6;box-sizing:border-box;}
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:visible;padding:20px;background:var(--cream);box-sizing:border-box;}
 .hero-bg{position:absolute;inset:20px;z-index:0;border-radius:18px;overflow:hidden;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(0.82);}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,rgba(28,22,17,0.15) 55%,transparent 100%);}
@@ -52,8 +50,7 @@ nav{position:absolute;top:0;left:0;right:0;z-index:100;padding:44px 46px;display
 .hero-eyebrow{font-family:var(--sans);font-size:0.68rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;opacity:0;animation:up 0.9s ease 0.2s forwards;}
 .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
 .hero-h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.8rem,8vw,10rem);line-height:0.96;letter-spacing:-0.02em;color:var(--cream);margin-bottom:24px;opacity:0;animation:up 1s ease 0.35s forwards;}
-.hero-h1 em{font-style:italic;color:rgba(244,239,230,0.35);}
-.hero-desc{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.8vw,1.4rem);line-height:1.7;color:var(--cream2);max-width:500px;opacity:0;animation:up 1s ease 0.5s forwards;margin-bottom:40px;}
+.hero-desc{font-family:var(--serif);font-style:italic;font-size:clamp(1rem,1.8vw,1.4rem);line-height:1.7;color:var(--cream2);max-width:680px;opacity:0;animation:up 1s ease 0.5s forwards;margin-bottom:40px;}
 .hero-tags{display:flex;gap:8px;flex-wrap:wrap;opacity:0;animation:up 1s ease 0.65s forwards;}
 .htag{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;padding:7px 16px;border:1px solid rgba(244,239,230,0.5);color:var(--cream);}
 @keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
@@ -61,99 +58,45 @@ nav{position:absolute;top:0;left:0;right:0;z-index:100;padding:44px 46px;display
 /* ── UTILITY ── */
 .sec{padding:120px 6vw;}
 .wrap{max-width:1200px;margin:0 auto;}
-.tag{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#a07830;display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-.tag::before{content:'';width:20px;height:1px;background:#a07830;}
+.tag-label{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.tag-label::before{content:'';width:20px;height:1px;background:var(--amber);}
+.tag-label-light{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.tag-label-light::before{content:'';width:20px;height:1px;background:var(--gold);}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.9s ease,transform 0.9s ease;}
 .reveal.in{opacity:1;transform:none;}
 
-/* ── CREDIBILITY STRIP ── */
-.cred-strip{background:#f4efe6;border-top:1px solid rgba(40,34,27,0.12);border-bottom:1px solid rgba(40,34,27,0.12);padding:0 6vw;}
-.cred-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(40,34,27,0.12);border-left:1px solid rgba(40,34,27,0.12);border-right:1px solid rgba(40,34,27,0.12);}
-.cred-item{background:#f4efe6;padding:44px 36px;transition:background 0.2s;}
-.cred-item:hover{background:#ede7db;}
-.ci-num{font-family:var(--serif);font-style:italic;font-size:2.2rem;font-weight:400;color:#a07830;line-height:1;margin-bottom:6px;}
-.ci-label{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#28221b;line-height:1.5;}
-
 /* ── ABOUT ── */
-.about{border-top:1px solid var(--border);}
+.about{background:var(--cream);border-top:none;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
-.about-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:28px;}
-.about-headline em{font-style:italic;color:var(--gold);}
-.about-body{font-size:0.93rem;line-height:1.95;color:var(--cream2);margin-bottom:18px;}
-.about-body strong{color:var(--cream);font-weight:500;}
-.about-img{aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid var(--border2);}
+.about-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:28px;color:#28221b;}
+.about-headline em{font-style:italic;color:var(--amber);}
+.about-body{font-size:0.93rem;line-height:1.95;color:rgba(40,34,27,0.75);margin-bottom:18px;}
+.about-body strong{color:#28221b;font-weight:500;}
+.about-img{aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid rgba(40,34,27,0.12);}
 .about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.8s ease;}
 .about-img:hover img{transform:scale(1.03);}
-.about-img-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(28,22,17,0.88);padding:12px 16px;font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
-
-/* ── FLOWING WOOD — FEATURE ── */
-.fw{background:#f4efe6;border-top:1px solid rgba(40,34,27,0.1);}
-.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.fw-headline{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,5.5vw,6.5rem);line-height:1.0;margin-bottom:16px;color:#28221b;}
-.fw-headline em{font-style:italic;color:var(--gold);}
-.fw-tagline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:#a07830;margin-bottom:28px;letter-spacing:0.02em;}
-.fw-body{font-size:0.93rem;line-height:1.95;color:rgba(40,34,27,0.75);margin-bottom:18px;}
-.fw-body strong{color:#28221b;font-weight:500;}
-.laurels{margin-top:36px;display:flex;flex-direction:column;border:1px solid rgba(40,34,27,0.15);}
-.laurel{display:grid;grid-template-columns:44px 1fr;gap:0;align-items:center;border-bottom:1px solid rgba(40,34,27,0.1);transition:background 0.2s;}
-.laurel:last-child{border-bottom:none;}
-.laurel:hover{background:rgba(40,34,27,0.04);}
-.laurel-icon{padding:18px 0 18px 18px;display:flex;align-items:center;justify-content:center;}
-.laurel-info{padding:18px 20px 18px 0;}
-.laurel-name{font-size:0.9rem;font-weight:500;color:#28221b;margin-bottom:3px;}
-.laurel-detail{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:#6b5a47;}
-.fw-right{display:flex;flex-direction:column;gap:20px;}
-.fw-poster{width:100%;aspect-ratio:2/3;overflow:hidden;border:1px solid var(--border2);position:relative;}
-.fw-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
-.fw-poster:hover img{transform:scale(1.03);}
-.yt-wrap{position:relative;width:100%;aspect-ratio:16/9;background:var(--bg3);overflow:hidden;border:1px solid var(--border2);}
-.yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-.yt-caption{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(40,34,27,0.45);text-align:right;margin-top:10px;}
-
-/* ── PORTFOLIO ── */
-.portfolio{border-top:1px solid var(--border);}
-.portfolio-intro{max-width:680px;margin-bottom:72px;}
-.portfolio-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:16px;}
-.portfolio-headline em{font-style:italic;color:var(--gold);}
-.portfolio-sub{font-size:0.93rem;line-height:1.85;color:var(--cream2);}
-.film-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
-.film-card{display:grid;grid-template-columns:380px 1fr;gap:0;background:var(--bg);transition:background 0.3s;position:relative;overflow:hidden;}
-.film-card:hover{background:var(--bg2);}
-.film-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform 0.4s ease;}
-.film-card:hover::before{transform:scaleY(1);}
-.fc-image{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--bg3);}
-.fc-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
-.film-card:hover .fc-image img{transform:scale(1.04);}
-.fc-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--bg3);border-right:1px solid var(--border);}
-.fc-body{padding:48px 52px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
-.fc-type{font-family:var(--sans);font-size:0.62rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
-.fc-title{font-family:var(--serif);font-size:clamp(1.8rem,2.5vw,2.8rem);font-weight:400;color:var(--cream);margin-bottom:8px;line-height:1.1;}
-.fc-tagline{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--gold);opacity:0.75;margin-bottom:20px;}
-.fc-desc{font-size:0.87rem;line-height:1.85;color:var(--cream2);margin-bottom:24px;}
-.fc-meta{display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid var(--border);}
-.fc-meta-item{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);display:flex;gap:10px;align-items:center;}
-.fc-meta-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0;opacity:0.5;}
+.about-img-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(40,34,27,0.8);padding:12px 16px;font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);}
 
 /* ── CREATIVE DIRECTION ── */
-.cd{background:#f4efe6;border-top:1px solid rgba(40,34,27,0.1);}
+.cd{background:var(--bg);border-top:1px solid var(--border);}
 .cd-intro{max-width:720px;margin-bottom:64px;}
-.cd-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,3.5vw,4.2rem);line-height:1.1;margin-bottom:20px;color:#28221b;}
-.cd-headline em{font-style:italic;color:#a07830;}
-.cd-body{font-size:0.93rem;line-height:1.9;color:rgba(40,34,27,0.72);}
-.cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(40,34,27,0.1);border:1px solid rgba(40,34,27,0.1);}
-.cd-card{background:#f4efe6;padding:48px 44px;position:relative;overflow:hidden;transition:background 0.3s;}
-.cd-card:hover{background:#ede7db;}
+.cd-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,3.5vw,4.2rem);line-height:1.1;margin-bottom:20px;color:var(--cream);}
+.cd-headline em{font-style:italic;color:var(--gold);}
+.cd-body{font-size:0.93rem;line-height:1.9;color:var(--cream2);}
+.cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.cd-card{background:var(--bg);padding:48px 44px;position:relative;overflow:hidden;transition:background 0.3s;}
+.cd-card:hover{background:var(--bg2);}
 .cd-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--gold),transparent);opacity:0;transition:opacity 0.3s;}
 .cd-card:hover::before{opacity:1;}
-.cc-eyebrow{font-family:var(--sans);font-size:0.62rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#a07830;opacity:1;margin-bottom:14px;}
-.cc-name{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:#28221b;margin-bottom:6px;line-height:1.1;}
-.cc-sub{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:#6b5a47;margin-bottom:18px;}
-.cc-body{font-size:0.87rem;line-height:1.85;color:rgba(40,34,27,0.72);}
+.cc-eyebrow{font-family:var(--sans);font-size:0.62rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.cc-name{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:6px;line-height:1.1;}
+.cc-sub{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);margin-bottom:18px;}
+.cc-body{font-size:0.87rem;line-height:1.85;color:var(--cream2);}
 
 /* ── TIMELINE ── */
-.timeline{border-top:1px solid var(--border);}
+.timeline{background:var(--bg2);border-top:1px solid var(--border);}
 .tl-intro{max-width:680px;margin-bottom:64px;}
-.tl-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,3.5vw,4.2rem);line-height:1.1;margin-bottom:16px;}
+.tl-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,3.5vw,4.2rem);line-height:1.1;margin-bottom:16px;color:var(--cream);}
 .tl-headline em{font-style:italic;color:var(--gold);}
 .tl-body{font-size:0.93rem;line-height:1.85;color:var(--cream2);}
 .tl-items{display:flex;flex-direction:column;border:1px solid var(--border2);}
@@ -165,28 +108,75 @@ nav{position:absolute;top:0;left:0;right:0;z-index:100;padding:44px 46px;display
 .tl-title{font-size:0.95rem;font-weight:500;color:var(--cream);margin-bottom:8px;}
 .tl-desc{font-size:0.85rem;line-height:1.8;color:var(--cream2);}
 
-/* ── TRANSITION / LEARN CTA ── */
-.learn-transition{background:#f4efe6;border-top:1px solid rgba(40,34,27,0.1);padding:120px 6vw;}
+/* ── PORTFOLIO ── */
+.portfolio{background:var(--bg);border-top:1px solid var(--border);}
+.portfolio-intro{max-width:680px;margin-bottom:72px;}
+.portfolio-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:16px;color:var(--cream);}
+.portfolio-headline em{font-style:italic;color:var(--gold);}
+.portfolio-sub{font-size:0.93rem;line-height:1.85;color:var(--cream2);}
+.film-cards{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
+.film-card{display:grid;grid-template-columns:380px 1fr;gap:0;background:var(--bg);transition:background 0.3s;position:relative;overflow:hidden;}
+.film-card:hover{background:var(--bg2);}
+.film-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transform-origin:top;transition:transform 0.4s ease;}
+.film-card:hover::before{transform:scaleY(1);}
+.fc-image{aspect-ratio:16/10;overflow:hidden;position:relative;background:var(--bg3);}
+.fc-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+.film-card:hover .fc-image img{transform:scale(1.04);}
+.fc-body{padding:48px 52px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
+.fc-type{font-family:var(--sans);font-size:0.62rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
+.fc-title{font-family:var(--serif);font-size:clamp(1.8rem,2.5vw,2.8rem);font-weight:400;color:var(--cream);margin-bottom:8px;line-height:1.1;}
+.fc-tagline{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--gold);opacity:0.75;margin-bottom:20px;}
+.fc-desc{font-size:0.87rem;line-height:1.85;color:var(--cream2);margin-bottom:24px;}
+.fc-meta{display:flex;flex-direction:column;gap:8px;padding-top:20px;border-top:1px solid var(--border);}
+.fc-meta-item{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);display:flex;gap:10px;align-items:center;}
+.fc-meta-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0;opacity:0.5;}
+
+/* ── FLOWING WOOD FEATURE ── */
+.fw{background:var(--cream);border-top:1px solid rgba(40,34,27,0.1);}
+.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.fw-headline{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,5.5vw,6.5rem);line-height:1.0;margin-bottom:16px;color:#28221b;}
+.fw-headline em{font-style:italic;color:var(--amber);}
+.fw-tagline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--amber);margin-bottom:28px;letter-spacing:0.02em;}
+.fw-body{font-size:0.93rem;line-height:1.95;color:rgba(40,34,27,0.75);margin-bottom:18px;}
+.fw-body strong{color:#28221b;font-weight:500;}
+.laurels{margin-top:36px;display:flex;flex-direction:column;border:1px solid rgba(40,34,27,0.15);}
+.laurel{display:grid;grid-template-columns:44px 1fr;align-items:center;border-bottom:1px solid rgba(40,34,27,0.1);transition:background 0.2s;}
+.laurel:last-child{border-bottom:none;}
+.laurel:hover{background:rgba(40,34,27,0.04);}
+.laurel-icon{padding:18px 0 18px 18px;display:flex;align-items:center;justify-content:center;}
+.laurel-info{padding:18px 20px 18px 0;}
+.laurel-name{font-size:0.9rem;font-weight:500;color:#28221b;margin-bottom:3px;}
+.laurel-detail{font-family:var(--sans);font-size:0.62rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;color:#6b5a47;}
+.fw-right{display:flex;flex-direction:column;gap:20px;}
+.fw-poster{width:100%;aspect-ratio:2/3;overflow:hidden;border:1px solid rgba(40,34,27,0.12);position:relative;}
+.fw-poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;}
+.fw-poster:hover img{transform:scale(1.03);}
+.yt-wrap{position:relative;width:100%;aspect-ratio:16/9;background:var(--bg3);overflow:hidden;border:1px solid rgba(40,34,27,0.12);}
+.yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+.yt-caption{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(40,34,27,0.45);text-align:right;margin-top:10px;}
+
+/* ── LEARN TRANSITION ── */
+.learn-transition{background:var(--bg2);border-top:1px solid var(--border);padding:120px 6vw;}
 .lt-inner{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;max-width:1200px;margin:0 auto;}
-.lt-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:24px;color:#28221b;}
-.lt-headline em{font-style:italic;color:#a07830;}
-.lt-body{font-size:0.93rem;line-height:1.95;color:rgba(40,34,27,0.72);margin-bottom:36px;}
-.lt-body strong{color:#28221b;font-weight:500;}
+.lt-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;margin-bottom:24px;color:var(--cream);}
+.lt-headline em{font-style:italic;color:var(--gold);}
+.lt-body{font-size:0.93rem;line-height:1.95;color:var(--cream2);margin-bottom:36px;}
+.lt-body strong{color:var(--cream);font-weight:500;}
 .btn-learn{display:inline-block;font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:16px 40px;text-decoration:none;transition:background 0.3s;position:relative;overflow:hidden;}
 .btn-learn::before{content:'';position:absolute;inset:0;background:var(--cream);transform:translateX(-101%);transition:transform 0.4s ease;}
 .btn-learn span{position:relative;z-index:1;}
 .btn-learn:hover::before{transform:translateX(0);}
-.lt-note{margin-top:14px;font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;color:rgba(40,34,27,0.45);}
-.lt-manifesto{background:#ede7db;border:1px solid rgba(40,34,27,0.15);padding:52px 48px;position:relative;}
+.lt-note{margin-top:14px;font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.07em;text-transform:uppercase;color:rgba(244,239,230,0.45);}
+.lt-manifesto{background:var(--bg);border:1px solid var(--border2);padding:52px 48px;position:relative;}
 .lm-rule{width:1px;height:48px;background:var(--gold);opacity:0.2;margin-bottom:32px;}
-.lm-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.6rem;line-height:1.4;color:#28221b;margin-bottom:20px;}
-.lm-attr{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(40,34,27,0.45);}
-.lm-ns{display:flex;align-items:center;gap:8px;margin-top:28px;padding-top:20px;border-top:1px solid rgba(40,34,27,0.1);}
-.lm-ns-text{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(40,34,27,0.5);}
+.lm-quote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.6rem;line-height:1.4;color:var(--cream);margin-bottom:20px;}
+.lm-attr{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(244,239,230,0.45);}
+.lm-ns{display:flex;align-items:center;gap:8px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border);}
+.lm-ns-text{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(244,239,230,0.5);}
 .lm-ns-text em{font-style:normal;color:var(--gold);opacity:0.8;}
 
 /* ── FOOTER ── */
-footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
 .footer-l{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream3);}
 .footer-links{display:flex;gap:24px;}
 .footer-link{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream3);text-decoration:none;transition:color 0.2s;}
@@ -197,25 +187,18 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
   .cd-grid{grid-template-columns:1fr;}
   .film-card{grid-template-columns:1fr;}
   .fc-image{aspect-ratio:16/9;}
-  .cred-row{grid-template-columns:1fr 1fr;}
   .tl-item{grid-template-columns:80px 1fr;}
   nav .nav-links .nav-link:not(.nav-cta){display:none;}
-  .fw-right{flex-direction:column;}
 }
-
-/* ── HERO INSET FRAME ── */
-
-
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav id="nav">
   <a href="#" class="nav-name">Joel Bryant</a>
   <div class="nav-links">
-    <a href="#films" class="nav-link">Films</a>
-    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#portfolio" class="nav-link">Work</a>
     <a href="#about" class="nav-link">About</a>
     <a href="apply.html" class="nav-link nav-cta">Learn with me</a>
   </div>
@@ -229,7 +212,7 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
   <div class="hero-content">
     <p class="hero-eyebrow">Documentary Filmmaker & Creative Director</p>
     <h1 class="hero-h1">Joel<br>Bryant<span style="color:var(--gold)">.</span></h1>
-    <p class="hero-desc">Chasing the stories that matter.<br>Byron Bay based. Available worldwide.</p>
+    <p class="hero-desc">Great stories don't just capture the world,<br>they make it a little more human.</p>
     <div class="hero-tags">
       <span class="htag">Documentary Filmmaker</span>
       <span class="htag">Commercial Storyteller</span>
@@ -239,44 +222,25 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
   </div>
 </section>
 
-<!-- ── CREDIBILITY STRIP ── -->
-<div class="cred-strip">
-  <div class="wrap cred-row">
-    <div class="cred-item reveal">
-      <div class="ci-num">3</div>
-      <p class="ci-label">International festival selections</p>
-    </div>
-    <div class="cred-item reveal">
-      <div class="ci-num">50K</div>
-      <p class="ci-label">Instagram followers built through craft</p>
-    </div>
-    <div class="cred-item reveal">
-      <div class="ci-num">YBS</div>
-      <p class="ci-label">Youngbloods — creative director</p>
-    </div>
-    <div class="cred-item reveal">
-      <div class="ci-num" style="font-size:1rem;letter-spacing:0.06em;font-style:normal;">WORLDWIDE</div>
-      <p class="ci-label">Byron Bay based · Available worldwide</p>
-    </div>
-  </div>
-</div>
-
-<!-- ── ABOUT ── -->
+<!-- ── ABOUT / WHO AM I ── -->
 <section class="sec about" id="about">
   <div class="wrap about-grid">
     <div>
-      <p class="tag reveal">Who I am</p>
+      <p class="tag-label reveal">Who I am</p>
       <h2 class="about-headline reveal">
         Meaning over<br>everything.<br><em>Always.</em>
       </h2>
       <p class="about-body reveal">
-        I'm a documentary filmmaker and creative director based in Byron Bay. I've spent my career chasing the stories that actually matter — the ones that reveal something true about what it means to be alive.
+        I'm a documentary filmmaker and creative director based in Byron Bay. I've spent my career chasing the stories that actually matter — the ones that reveal something true about what it means to be alive, and our shared connection to each other and this earth.
       </p>
       <p class="about-body reveal">
-        <strong>I believe the best work comes from people who are fully themselves.</strong> That every frame is a choice. That craft without meaning is just noise. And that a camera, in the right hands, can change how someone sees the world.
+        <strong>I believe the best work comes from people who are fully themselves.</strong> That every frame is a choice. That craft without meaning is just noise. And that a camera, in the right hands, can bring more human connection into the world.
       </p>
       <p class="about-body reveal">
-        My films have screened at international festivals. I've worked as Creative Director for some of the world's most-watched creators. I've built an audience of tens of thousands through craft alone. And I've spent years figuring out how to build a creative life that funds itself — without compromising the work that matters.
+        I picked up a camera at 14 and never put it down. Since then it's taken me across Australia, through Indonesia, Kenya, and beyond — documenting the people and stories that remind us what life is really about. My films have screened at international festivals. I've worked as Creative Director for some of the world's most-watched creators. And I've spent years building a creative life that funds itself — without compromising the work that matters.
+      </p>
+      <p class="about-body reveal" style="font-family:var(--serif);font-style:italic;color:var(--amber);font-size:1rem;margin-top:8px;">
+        "The camera saved my life — now I use it to tell stories that matter."
       </p>
     </div>
     <div class="about-img reveal">
@@ -286,59 +250,82 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
   </div>
 </section>
 
-<!-- ── FLOWING WOOD — FEATURE FILM ── -->
-<section class="sec fw" id="films">
-  <div class="wrap fw-grid">
-    <div>
-      <p class="tag reveal">Featured Film — 2025</p>
-      <h2 class="fw-headline reveal">Flowing<br><em>Wood.</em></h2>
-      <p class="fw-tagline reveal">"Painting country, on country, with country."</p>
-      <p class="fw-body reveal">
-        A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes. Gathering materials from the very beaches he visits, he finds solace in the rhythm of the ocean and the creative process.
-      </p>
-      <p class="fw-body reveal">
-        <strong>Through art, he navigates themes of nature, solitude, and healing</strong> — transforming loss into something beautiful, one brushstroke at a time.
-      </p>
-
-      <div class="laurels reveal">
-        <div class="laurel">
-          <div class="laurel-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e6c385" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-          </div>
-          <div class="laurel-info">
-            <p class="laurel-name">Byron Bay Film Festival</p>
-            <p class="laurel-detail">Winner · Best Byron Bay Film — BBFF2025</p>
-          </div>
-        </div>
-        <div class="laurel">
-          <div class="laurel-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e6c385" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-          </div>
-          <div class="laurel-info">
-            <p class="laurel-name">Noosa Film Festival</p>
-            <p class="laurel-detail">Official Selection · 2025</p>
-          </div>
-        </div>
-        <div class="laurel">
-          <div class="laurel-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e6c385" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
-          </div>
-          <div class="laurel-info">
-            <p class="laurel-name">France Anglet International Surf Film Festival</p>
-            <p class="laurel-detail">Official Selection · 2025</p>
-          </div>
-        </div>
+<!-- ── CREATIVE DIRECTION ── -->
+<section class="sec cd">
+  <div class="wrap">
+    <div class="cd-intro">
+      <p class="tag-label-light reveal">Creative Direction</p>
+      <h2 class="cd-headline reveal">The vision behind<br><em>the work.</em></h2>
+      <p class="cd-body reveal">Alongside my documentary practice, I work as Creative Director for some of the world's most-watched creators and brands — helping them build the visual language and storytelling depth that makes audiences stay.</p>
+    </div>
+    <div class="cd-grid reveal">
+      <div class="cd-card">
+        <p class="cc-eyebrow">Featured client</p>
+        <h3 class="cc-name">Brodie Moss</h3>
+        <p class="cc-sub">YBS Youngbloods · Millions of subscribers worldwide</p>
+        <p class="cc-body">Creative Director for one of YouTube's most successful ocean adventure channels. Working with Brodie to shape the visual identity, narrative structure, and cinematic quality that has built a global audience of millions. Proof that documentary filmmaking craft translates directly into content that scales.</p>
+      </div>
+      <div class="cd-card">
+        <p class="cc-eyebrow">Also worked with</p>
+        <h3 class="cc-name">Wade Pappenfus</h3>
+        <p class="cc-sub">Lead Videographer & Editor · 25K → 1M subscribers</p>
+        <p class="cc-body">Worked with Wade as lead videographer and editor, helping grow his YouTube channel from 25,000 subscribers to over one million. Understanding what content scales — and why — from the inside of one of Australia's fastest-growing channels.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="fw-right">
-      <div class="fw-poster reveal">
-        <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood — A film by Joel Bryant">
+<!-- ── TIMELINE / MY JOURNEY ── -->
+<section class="sec timeline" id="journey">
+  <div class="wrap">
+    <div class="tl-intro">
+      <p class="tag-label-light reveal">My journey</p>
+      <h2 class="tl-headline reveal">Built over years.<br><em>Not overnight.</em></h2>
+      <p class="tl-body reveal">I built a filmmaking career from scratch — without a safety net, without a famous mentor, without a film school network. I figured it out. Everything I teach comes from doing it in the real world, not theorising about it.</p>
+    </div>
+    <div class="tl-items reveal">
+      <div class="tl-item">
+        <div class="tl-year">14</div>
+        <div class="tl-content">
+          <p class="tl-title">A GoPro changes everything</p>
+          <p class="tl-desc">A camera gave grief a language. The Kimberleys trip opened the world. Creativity returned with purpose — and never left.</p>
+        </div>
       </div>
-      <div class="yt-wrap reveal">
-        <iframe src="https://www.youtube.com/embed/8GG6SbLBU90" title="Flowing Wood" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="tl-item">
+        <div class="tl-year">Early</div>
+        <div class="tl-content">
+          <p class="tl-title">First paid work — real estate videos</p>
+          <p class="tl-desc">Proof that the craft could become a living. The connection between art and income clicked for the first time.</p>
+        </div>
       </div>
-      <p class="yt-caption reveal">Watch the film · Flowing Wood · 2025</p>
+      <div class="tl-item">
+        <div class="tl-year">WA</div>
+        <div class="tl-content">
+          <p class="tl-title">YBS Youngbloods — Lead Videographer & Editor</p>
+          <p class="tl-desc">Worked inside one of YouTube's biggest ocean adventure channels with Brodie Moss. Helped grow Wade Pappenfus from 25K to over 1 million subscribers. Saw from the inside what content that actually scales looks like.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Byron</div>
+        <div class="tl-content">
+          <p class="tl-title">The leap — moved to Byron Bay with no guaranteed work</p>
+          <p class="tl-desc">Chose nature over security. Backed himself. Built the brand from 9K to 40K through craft alone — a 30-day filmmaking challenge. No shortcuts. Just showing real work every day.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <p class="tl-title">Flowing Wood — Best Byron Bay Film, BBFF2025</p>
+          <p class="tl-desc">Documentary selected for Byron Bay Film Festival (winner), Noosa Film Festival, and France Anglet International Surf Film Festival. Three international selections. Peer-reviewed creative validation at the highest level the independent film world offers.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Now</div>
+        <div class="tl-content">
+          <p class="tl-title">Building Northstar Academy</p>
+          <p class="tl-desc">Teaching the full system — master the craft, build the brand, earn from the work, tell the stories that matter. Proof that it's possible without selling your soul.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -347,16 +334,28 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
 <section class="sec portfolio" id="portfolio">
   <div class="wrap">
     <div class="portfolio-intro">
-      <p class="tag reveal">Portfolio</p>
-      <h2 class="portfolio-headline reveal">
-        Stories worth<br><em>telling.</em>
-      </h2>
-      <p class="portfolio-sub reveal">
-        Documentary and storytelling work built around meaning, craft, and the subjects that deserve more than surface treatment. Each project is a commitment — to the story, to the subject, and to the craft of filmmaking itself.
-      </p>
+      <p class="tag-label-light reveal">Portfolio</p>
+      <h2 class="portfolio-headline reveal">Stories worth<br><em>telling.</em></h2>
+      <p class="portfolio-sub reveal">Documentary and storytelling work built around meaning, craft, and the subjects that deserve more than surface treatment.</p>
     </div>
-
     <div class="film-cards">
+
+      <!-- FLOWING WOOD -->
+      <div class="film-card reveal">
+        <div class="fc-image">
+          <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood">
+        </div>
+        <div class="fc-body">
+          <p class="fc-type">Documentary · Festival Selected · 2025</p>
+          <h3 class="fc-title">Flowing Wood</h3>
+          <p class="fc-tagline">"Painting country, on country, with country."</p>
+          <p class="fc-desc">A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes — navigating themes of nature, solitude, and healing.</p>
+          <div class="fc-meta">
+            <span class="fc-meta-item"><span class="fc-meta-dot"></span>BBFF2025 Best Byron Bay Film</span>
+            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Noosa Film Festival · France Anglet International Surf Film Festival</span>
+          </div>
+        </div>
+      </div>
 
       <!-- KOUD RETREAT -->
       <div class="film-card reveal">
@@ -366,11 +365,8 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
         <div class="fc-body">
           <p class="fc-type">Documentary · Storytelling</p>
           <h3 class="fc-title">Koud Retreat</h3>
-          <p class="fc-tagline"><!-- Add tagline --></p>
-          <p class="fc-desc">
-            <!-- Add description when ready. This is a placeholder in your voice:<br> -->
-            A documentary exploring the stillness and intention behind retreat — what it means to step away from the noise, return to something essential, and find clarity in the act of slowing down.
-          </p>
+          <p class="fc-tagline"></p>
+          <p class="fc-desc">A documentary exploring the stillness and intention behind retreat — what it means to step away from the noise, return to something essential, and find clarity in the act of slowing down.</p>
           <div class="fc-meta">
             <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
             <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
@@ -386,10 +382,8 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
         <div class="fc-body">
           <p class="fc-type">Documentary · Storytelling</p>
           <h3 class="fc-title">Convivio Launch</h3>
-          <p class="fc-tagline"><!-- Add tagline --></p>
-          <p class="fc-desc">
-            A documentary about gathering — about the table as a place of meaning, the ritual of sharing food and conversation, and what it reveals about the people who come together around it.
-          </p>
+          <p class="fc-tagline"></p>
+          <p class="fc-desc">A documentary about gathering — about the table as a place of meaning, the ritual of sharing food and conversation, and what it reveals about the people who come together around it.</p>
           <div class="fc-meta">
             <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
             <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
@@ -401,93 +395,50 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
   </div>
 </section>
 
-<!-- ── CREATIVE DIRECTION ── -->
-<section class="sec cd">
-  <div class="wrap">
-    <div class="cd-intro">
-      <p class="tag reveal">Creative Direction</p>
-      <h2 class="cd-headline reveal">The vision behind<br><em>the work.</em></h2>
-      <p class="cd-body reveal">Alongside my documentary practice, I work as Creative Director for some of the world's most-watched creators and brands — helping them build the visual language and storytelling depth that makes audiences stay.</p>
+<!-- ── FLOWING WOOD FEATURE ── -->
+<section class="sec fw" id="flowing-wood">
+  <div class="wrap fw-grid">
+    <div>
+      <p class="tag-label reveal">Featured Film — 2025</p>
+      <h2 class="fw-headline reveal">Flowing<br><em>Wood.</em></h2>
+      <p class="fw-tagline reveal">"Painting country, on country, with country."</p>
+      <p class="fw-body reveal">A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes. Gathering materials from the very beaches he visits, he finds solace in the rhythm of the ocean and the creative process.</p>
+      <p class="fw-body reveal"><strong>Through art, he navigates themes of nature, solitude, and healing</strong> — transforming loss into something beautiful, one brushstroke at a time.</p>
+      <div class="laurels reveal">
+        <div class="laurel">
+          <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+          <div class="laurel-info"><p class="laurel-name">Byron Bay Film Festival</p><p class="laurel-detail">Winner · Best Byron Bay Film — BBFF2025</p></div>
+        </div>
+        <div class="laurel">
+          <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+          <div class="laurel-info"><p class="laurel-name">Noosa Film Festival</p><p class="laurel-detail">Official Selection · 2025</p></div>
+        </div>
+        <div class="laurel">
+          <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+          <div class="laurel-info"><p class="laurel-name">France Anglet International Surf Film Festival</p><p class="laurel-detail">Official Selection · 2025</p></div>
+        </div>
+      </div>
     </div>
-    <div class="cd-grid reveal">
-      <div class="cd-card">
-        <p class="cc-eyebrow">Featured client</p>
-        <h3 class="cc-name">Brodie Moss</h3>
-        <p class="cc-sub">YBS Youngbloods · Millions of subscribers worldwide</p>
-        <p class="cc-body">Creative Director for one of YouTube's most successful ocean adventure channels. Working with Brodie to shape the visual identity, narrative structure, and cinematic quality that has built a global audience of millions. Proof that documentary filmmaking craft translates directly into content that scales.</p>
+    <div class="fw-right">
+      <div class="fw-poster reveal">
+        <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood — A film by Joel Bryant">
       </div>
-      <div class="cd-card">
-        <p class="cc-eyebrow">The approach</p>
-        <h3 class="cc-name">Story first.<br>Always.</h3>
-        <p class="cc-sub">YouTubers · Personal brands · Commercial clients</p>
-        <p class="cc-body">Every piece of work starts with the same question: what is the story that actually matters here? I bring documentary storytelling depth to commercial work, and commercial discipline to documentary work. The result is content that doesn't just look good. It means something.</p>
+      <div class="yt-wrap reveal">
+        <iframe src="https://www.youtube.com/embed/8GG6SbLBU90" title="Flowing Wood" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CREDIBILITY TIMELINE ── -->
-<section class="sec timeline">
-  <div class="wrap">
-    <div class="tl-intro">
-      <p class="tag reveal">The journey</p>
-      <h2 class="tl-headline reveal">Built over years.<br><em>Not overnight.</em></h2>
-      <p class="tl-body reveal">The credibility behind everything I teach comes from a career spent doing the actual work — not theorising about it.</p>
-    </div>
-    <div class="tl-items reveal">
-      <div class="tl-item">
-        <div class="tl-year">Now</div>
-        <div class="tl-content">
-          <p class="tl-title">Founding Northstar Academy</p>
-          <p class="tl-desc">Building a complete creative ecosystem for filmmakers who want to earn without compromising their vision. Teaching the system I built through years of doing it myself. Living proof that the thesis works.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2025</div>
-        <div class="tl-content">
-          <p class="tl-title">Flowing Wood — Best Byron Bay Film, BBFF2025</p>
-          <p class="tl-desc">Documentary selected for Byron Bay Film Festival (winner), Noosa Film Festival, and France Anglet International Surf Film Festival. Three international selections for a single independent film — peer-reviewed creative validation at the highest level the independent film world offers.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-content">
-          <p class="tl-title">Creative Director — YBS Youngbloods (Brodie Moss)</p>
-          <p class="tl-desc">Creative direction for one of YouTube's most-watched ocean adventure channels with millions of global subscribers. Proof that documentary storytelling craft translates directly into content that scales at the highest level.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">Prior</div>
-        <div class="tl-content">
-          <p class="tl-title">Major YouTube Channel — Behind the scenes</p>
-          <p class="tl-desc">Worked as a creative at one of the world's largest YouTube channels. Saw firsthand what separates content that scales from content that doesn't. That inside knowledge is baked into everything I now teach.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">Ongoing</div>
-        <div class="tl-content">
-          <p class="tl-title">50K Instagram following — built through craft alone</p>
-          <p class="tl-desc">Built an audience of nearly 50,000 in the filmmaking space through a 30-day filmmaking challenge — no shortcuts, no hacks. Just showing real work every day and letting the craft speak. Proof of concept for exactly what I teach.</p>
-        </div>
-      </div>
+      <p class="yt-caption reveal">Watch the film · Flowing Wood · 2025</p>
     </div>
   </div>
 </section>
 
-<!-- ── TRANSITION TO LEARNING ── -->
+<!-- ── LEARN TRANSITION ── -->
 <section class="learn-transition">
   <div class="lt-inner">
     <div>
-      <p class="tag reveal">Northstar Academy</p>
-      <h2 class="lt-headline reveal">
-        Everything I built<br>is now a system<br><em>I teach.</em>
-      </h2>
-      <p class="lt-body reveal">
-        The festivals, the clients, the following, the career — none of it came with a manual. I built the system myself through years of trial and error. <strong>Now I give that system away</strong> to filmmakers who are serious about doing this for real.
-      </p>
-      <p class="lt-body reveal">
-        If you have a camera or an iPhone and you want to build a creative career without selling out — this is where you start.
-      </p>
+      <p class="tag-label-light reveal">Northstar Academy</p>
+      <h2 class="lt-headline reveal">Everything I built<br>is now a system<br><em>I teach.</em></h2>
+      <p class="lt-body reveal">The festivals, the clients, the following, the career — none of it came with a manual. I built the system myself through years of trial and error. <strong>Now I give that system away</strong> to filmmakers who are serious about doing this for real.</p>
+      <p class="lt-body reveal">If you have a camera or an iPhone and you want to build a creative career without selling out — this is where you start.</p>
       <div class="reveal">
         <a href="apply.html" class="btn-learn"><span>Apply to learn with me</span></a>
         <p class="lt-note" style="margin-top:12px;">Free strategy call · No obligation · Limited spots</p>
@@ -495,17 +446,17 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
     </div>
     <div class="lt-manifesto reveal">
       <div class="lm-rule"></div>
-      <p class="lm-quote">"Prove that a creative can build a business without selling their soul."</p>
+      <p class="lm-quote">"Proof that a creative can build a life of freedom without selling their soul."</p>
       <p class="lm-attr">— The philosophy behind everything</p>
       <div class="lm-ns">
         <svg width="16" height="16" viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#e6c385" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#e6c385" opacity="0.3"/></svg>
-        <span class="lm-ns-text">Northstar <em>Academy</em> — Guiding creators towards meaningful work</span>
+        <span class="lm-ns-text">Northstar <em>Academy</em> — Guiding creators toward meaningful work</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- ── FOOTER ── */
 <footer>
   <span class="footer-l">© 2026 Joel Bryant</span>
   <div class="footer-links">
@@ -516,7 +467,6 @@ footer{padding:32px 6vw;border-top:1px solid var(--border);display:flex;justify-
 </footer>
 
 <script>
-// nav scrolls with page — no sticky behaviour
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
