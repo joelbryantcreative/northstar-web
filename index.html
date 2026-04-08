@@ -276,9 +276,14 @@ footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-
   .hero-desc{font-size:0.95rem;}
   .hero-tags{gap:6px;}
   .htag{font-size:0.6rem;padding:6px 12px;}
-  .about-grid{grid-template-columns:1fr;gap:40px;}
-  .about-img{aspect-ratio:3/2;}
+  .about-grid{grid-template-columns:1fr;gap:0;}
+  .about-left{display:contents;}
+  .about-intro{order:1;}
+  .about-img{order:2;margin:28px 0;}
+  .about-body-wrap{order:3;}
   .wt-header{flex-direction:column;align-items:flex-start;gap:24px;margin-bottom:36px;}
+  .wt-heading-block{width:100%;}
+  .wt-headline{font-size:clamp(1.8rem,7vw,2.4rem);}
   .wt-tabs{width:100%;}
   .wt-tab{flex:1;font-size:0.6rem;padding:12px 6px;text-align:center;}
   .film-cards{gap:12px;}
@@ -484,24 +489,28 @@ section, .sec, .cred-strip, .learn-transition, footer,
 <!-- ── ABOUT / WHO AM I ── -->
 <section class="sec about" id="about">
   <div class="wrap about-grid">
-    <div>
-      <p class="tag-label reveal">Who Am I</p>
-      <h2 class="about-headline reveal">
-        Meaning over<br>everything.<br><em>Always.</em>
-      </h2>
-      <p class="about-body reveal">
-        I'm a documentary filmmaker and creative director based in Byron Bay. I've spent my career chasing the stories that actually matter. The ones that reveal something true about what it means to be alive, and our shared connection to each other and this earth.
-      </p>
-      <p class="about-body reveal">
-        <strong>I believe the best work comes from people who are fully themselves.</strong> That every frame is a choice. That craft without meaning is just noise. And that a camera, in the right hands, can bring more human connection into the world.
-      </p>
-      <p class="about-body reveal">
-        I picked up a camera at 14 and never put it down. Since then it's taken me across Australia, through Indonesia, Kenya, and beyond, documenting the people and stories that remind us what life is really about. My films have screened at international festivals. I've worked as Creative Director for some of the world's most-watched creators. And I've spent years building a creative life that funds itself... without compromising the work that matters.
-      </p>
-      <div class="reveal" style="margin-top:32px;padding:14px 20px;border-left:2px solid #a07830;background:rgba(160,120,48,0.05);">
-        <p style="font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.6;color:#28221b;margin-bottom:10px;">"My camera saved my life and gave me purpose, now I use it to tell stories that matter."</p>
+    <div class="about-left">
+      <div class="about-intro">
+        <p class="tag-label reveal">Who Am I</p>
+        <h2 class="about-headline reveal">
+          Meaning over<br>everything.<br><em>Always.</em>
+        </h2>
       </div>
+      <div class="about-body-wrap">
+        <p class="about-body reveal">
+          I'm a documentary filmmaker and creative director based in Byron Bay. I've spent my career chasing the stories that actually matter. The ones that reveal something true about what it means to be alive, and our shared connection to each other and this earth.
+        </p>
+        <p class="about-body reveal">
+          <strong>I believe the best work comes from people who are fully themselves.</strong> That every frame is a choice. That craft without meaning is just noise. And that a camera, in the right hands, can bring more human connection into the world.
+        </p>
+        <p class="about-body reveal">
+          I picked up a camera at 14 and never put it down. Since then it's taken me across Australia, through Indonesia, Kenya, and beyond, documenting the people and stories that remind us what life is really about. My films have screened at international festivals. I've worked as Creative Director for some of the world's most-watched creators. And I've spent years building a creative life that funds itself... without compromising the work that matters.
+        </p>
+        <div class="reveal" style="margin-top:32px;padding:14px 20px;border-left:2px solid #a07830;background:rgba(160,120,48,0.05);">
+          <p style="font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.6;color:#28221b;margin-bottom:10px;">"My camera saved my life and gave me purpose, now I use it to tell stories that matter."</p>
+        </div>
       </div>
+    </div>
     <div class="about-img reveal">
       <img src="images/joel-dp.jpg" alt="Joel Bryant">
       <div class="about-img-caption">Byron Bay, Australia · 2026</div>
