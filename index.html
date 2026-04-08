@@ -216,7 +216,8 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 
 /* ── POLAROIDS ── */
 .tl-polaroid-wrap{display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;}
-.tl-polaroid{background:#f5f0e8;padding:10px 10px 36px;box-shadow:0 6px 32px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);width:160px;flex-shrink:0;opacity:0;transform:rotate(var(--rot,3deg)) translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.tl-polaroid{background:#f5f0e8;padding:10px 10px 36px;box-shadow:0 6px 32px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);width:160px;flex-shrink:0;opacity:1;transform:rotate(var(--rot,3deg));transition:opacity 0.8s ease,transform 0.8s ease;}
+.tl-polaroid.will-animate{opacity:0;transform:rotate(var(--rot,3deg)) translateY(20px);}
 .tl-polaroid.visible{opacity:1;transform:rotate(var(--rot,3deg)) translateY(0);}
 .tl-polaroid-img{aspect-ratio:1;overflow:hidden;background:#c8bfb0;width:100%;display:flex;align-items:center;justify-content:center;}
 .tl-polaroid-img img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -926,8 +927,11 @@ const polaroidObs=new IntersectionObserver(entries=>{
       polaroidObs.unobserve(e.target);
     }
   });
-},{threshold:0.25});
-document.querySelectorAll('.tl-polaroid').forEach(p=>polaroidObs.observe(p));
+},{threshold:0.15});
+document.querySelectorAll('.tl-polaroid').forEach(p=>{
+  p.classList.add('will-animate');
+  polaroidObs.observe(p);
+});
 
 document.querySelectorAll('.wt-tab').forEach(btn=>{
   btn.addEventListener('click',()=>{
