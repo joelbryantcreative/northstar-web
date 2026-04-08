@@ -46,6 +46,20 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 .nav-link:hover{opacity:0.6;}
 .nav-cta{font-family:var(--sans);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid rgba(244,239,230,0.5);padding:8px 18px;transition:all 0.2s;border-radius:999px;}
 .nav-cta:hover{background:rgba(244,239,230,0.1);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--cream);transition:all 0.3s ease;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-dropdown{display:none;position:absolute;top:64px;left:0;right:0;background:#28221b;border-bottom:1px solid rgba(244,239,230,0.08);z-index:99;flex-direction:column;padding:8px 0;}
+.nav-dropdown.open{display:flex;}
+.nav-dropdown-link{font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:16px 6vw;border-bottom:1px solid rgba(244,239,230,0.05);transition:background 0.2s;}
+.nav-dropdown-link:last-child{border-bottom:none;}
+.nav-dropdown-link:hover{background:rgba(244,239,230,0.04);}
+@media(max-width:768px){
+  .nav-hamburger{display:flex;}
+  .nav-links .nav-link:not(.nav-cta){display:none;}
+}
 
 /* ── HERO ── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:visible;padding:20px;background:var(--cream);box-sizing:border-box;}
@@ -458,13 +472,22 @@ section, .sec, .cred-strip, .learn-transition, footer,
 </div>
 
 <!-- Sticky nav -->
-<nav id="nav">
+<nav id="nav" style="position:sticky;">
   <a href="#" class="nav-name">Joel Bryant</a>
   <div class="nav-links">
     <a href="#work" class="nav-link">Work</a>
     <a href="#about" class="nav-link">About</a>
     <a href="#inquire" class="nav-link">Inquire</a>
     <a href="apply.html" class="nav-link nav-cta">Learn from me</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-dropdown" id="nav-dropdown">
+    <a href="#work" class="nav-dropdown-link">Work</a>
+    <a href="#about" class="nav-dropdown-link">About</a>
+    <a href="#inquire" class="nav-dropdown-link">Inquire</a>
+    <a href="apply.html" class="nav-dropdown-link" style="color:var(--gold);">Learn from me</a>
   </div>
 </nav>
 
@@ -873,6 +896,19 @@ function closeLightbox(){
 lbClose.addEventListener('click',closeLightbox);
 lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+const hamburger=document.getElementById('hamburger');
+const navDropdown=document.getElementById('nav-dropdown');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  navDropdown.classList.toggle('open');
+});
+document.querySelectorAll('.nav-dropdown-link').forEach(link=>{
+  link.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    navDropdown.classList.remove('open');
+  });
+});
 
 const revealObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
