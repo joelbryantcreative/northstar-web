@@ -219,9 +219,9 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 .lightbox-close:hover{color:var(--cream);}
 
 
-.tl-cta{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;margin-top:72px;padding-top:72px;border-top:1px solid rgba(40,34,27,0.15);}
-.tl-cta-heading{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.5vw,3.8rem);line-height:1.06;margin-bottom:20px;color:var(--cream);}
-.tl-cta-heading em{font-style:italic;color:var(--gold);}
+.tl-cta{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;margin-top:72px;background:var(--cream);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.35);}
+.tl-cta-heading{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.5vw,3.8rem);line-height:1.06;margin-bottom:20px;color:#28221b;}
+.tl-cta-heading em{font-style:italic;color:var(--amber);}
 @media(max-width:960px){.tl-cta{grid-template-columns:1fr;gap:52px;}}
 
 /* ── POLAROIDS ── */
@@ -783,27 +783,27 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
     <!-- CTA -->
     <div class="tl-cta reveal">
-      <div class="tl-cta-left">
+      <div class="tl-cta-left" style="padding:52px 48px;border-right:1px solid rgba(40,34,27,0.1);">
         <div class="lm-rule"></div>
         <p class="lm-quote">"Proof that a creative can build a life of freedom without selling their soul."</p>
         <p class="lm-attr">— The philosophy behind everything</p>
         <div class="lm-ns" style="margin-top:20px;">
-          <svg width="16" height="16" viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#e6c385" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#e6c385" opacity="0.3"/></svg>
+          <svg width="16" height="16" viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#a07830" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#a07830" opacity="0.3"/></svg>
           <span class="lm-ns-text">Northstar <em>Academy</em> — Guiding creators toward meaningful work</span>
         </div>
       </div>
-      <div class="tl-cta-right">
-        <p class="tag-label-light" style="margin-bottom:16px;color:var(--gold);">Northstar Academy</p>
+      <div class="tl-cta-right" style="padding:52px 48px;">
+        <p class="tag-label-light" style="margin-bottom:16px;color:var(--amber);">Northstar Academy</p>
         <h3 class="tl-cta-heading">I took the long road.<br><em>You don't have to.</em></h3>
-        <p class="tl-body" style="margin-bottom:32px;">The festivals, the clients, the following, the career — none of it came with a manual. <strong style="color:var(--cream);">Now I give that system away</strong> to filmmakers who are serious about doing this for real. Camera or iPhone. Three months. Your move.</p>
+        <p class="tl-body" style="margin-bottom:32px;color:rgba(40,34,27,0.75);">The festivals, the clients, the following, the career — none of it came with a manual. <strong style="color:#28221b;">Now I give that system away</strong> to filmmakers who are serious about doing this for real. Camera or iPhone. Three months. Your move.</p>
         <div class="tl-badge-wrap">
-          <span class="tl-lock-badge">
+          <span class="tl-lock-badge" style="color:rgba(40,34,27,0.6);border-color:rgba(40,34,27,0.2);">
             <svg width="11" height="13" viewBox="0 0 11 13" fill="none"><rect x="1" y="5.5" width="9" height="7" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M3 5.5V3.5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
             By application only
           </span>
         </div>
         <a href="apply.html" class="btn-apply">Apply to join</a>
-        <p class="lt-note" style="margin-top:14px;">Free strategy call · No obligation · Limited spots</p>
+        <p class="lt-note" style="margin-top:14px;color:rgba(40,34,27,0.4);">Free strategy call · No obligation · Limited spots</p>
       </div>
     </div>
 
