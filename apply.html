@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Northstar Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Heavy.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+
+
+:root {
+  --bg: #28221b; --bg2: #3d3530; --bg3: #1e1e1e;
+  --cream: #f4efe6; --cream2: rgba(244,239,230,0.55); --cream3: rgba(244,239,230,0.25);
+  --gold: #e6c385; --golddim: rgba(230,195,133,0.12); --stone: #a99880;
+  --border: rgba(244,239,230,0.08); --border2: rgba(244,239,230,0.14);
+  --serif: 'Canela Text', Georgia, serif;
+  --sans: 'SF Pro Display', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight:300;min-height:100vh;display:flex;align-items:center;justify-content:center;-webkit-font-smoothing:antialiased;padding:24px;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
+.card{position:relative;z-index:1;width:100%;max-width:480px;background:var(--bg2);border:1px solid var(--border);padding:48px 44px 44px;animation:fadeUp 0.7s ease forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.brand{display:flex;align-items:center;gap:9px;margin-bottom:36px;}
+.brand svg{width:20px;height:20px;flex-shrink:0;}
+.brand-text{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,239,230,0.35);}
+.brand-text em{font-style:normal;color:var(--gold);opacity:0.8;}
+.photo-wrap{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(230,195,133,0.3);margin-bottom:24px;}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.eyebrow{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1;color:var(--cream);margin-bottom:8px;letter-spacing:-0.01em;}
+h1 em{font-style:italic;color:var(--gold);}
+.sub{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--cream2);margin-bottom:28px;line-height:1.45;}
+.bullets{list-style:none;margin-bottom:32px;border-top:1px solid var(--border);}
+.bullets li{display:flex;gap:12px;align-items:flex-start;font-size:0.86rem;line-height:1.6;color:var(--cream2);padding:11px 0;border-bottom:1px solid var(--border);}
+.bullets li::before{content:'✦';color:var(--gold);font-size:0.58rem;flex-shrink:0;margin-top:3px;opacity:0.7;}
+.rule{width:100%;height:1px;background:var(--border);margin-bottom:28px;}
+.form-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,230,0.35);display:block;margin-bottom:7px;}
+.form-field{margin-bottom:14px;}
+input[type=text],input[type=email],select{width:100%;background:rgba(244,239,230,0.05);border:1px solid var(--border);color:var(--cream);font-family:var(--sans);font-size:0.9rem;font-weight:300;padding:13px 16px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0;}
+input[type=text]:focus,input[type=email]:focus,select:focus{border-color:rgba(230,195,133,0.5);background:rgba(244,239,230,0.07);}
+input::placeholder{color:rgba(244,239,230,0.2);}
+select{cursor:pointer;}
+select option{background:var(--bg2);color:var(--cream);}
+button[type=submit]{width:100%;margin-top:6px;background:var(--gold);color:var(--bg);border:none;font-family:var(--mono);font-size:0.68rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;padding:16px;cursor:pointer;transition:background 0.25s;}
+button[type=submit]:hover{background:var(--cream);}
+.disclaimer{margin-top:14px;font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,239,230,0.2);text-align:center;line-height:1.6;}
+.success{display:none;text-align:center;padding:20px 0;}
+.success h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:10px;}
+.success p{font-size:0.88rem;color:var(--cream2);line-height:1.7;}
+.success-icon{font-size:2rem;margin-bottom:16px;color:var(--gold);}
+@media(max-width:520px){.card{padding:36px 28px 32px;}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand">
+    <svg viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#f4efe6" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#f4efe6" opacity="0.25"/></svg>
+    <span class="brand-text">Northstar <em>Academy</em></span>
+  </div>
+  <div class="photo-wrap">
+    <img src="images/joel-dp.jpg" alt="Joel Bryant">
+  </div>
+  <p class="eyebrow">Apply to work with Joel</p>
+  <h1>Turn your camera<br>or iPhone into<br><em>a career.</em></h1>
+  <p class="sub">Without selling out your creative vision.</p>
+  <ul class="bullets">
+    <li>Works with any camera or iPhone — any experience level</li>
+    <li>A clear system to go from filmmaker to consistent income</li>
+    <li>Direct mentorship, live group calls, real accountability</li>
+    <li>Limited spots — applications reviewed personally by Joel</li>
+  </ul>
+  <div class="rule"></div>
+  <form id="applyForm" onsubmit="handleSubmit(event)">
+    <div class="form-field">
+      <label class="form-label" for="name">Full name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="instagram">Instagram handle</label>
+      <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="stage">Where are you right now?</label>
+      <select id="stage" name="stage" required>
+        <option value="" disabled selected>Select your situation</option>
+        <option value="hobbyist">I film for passion but earn nothing from it yet</option>
+        <option value="job">I have a 9-to-5 and want filmmaking to replace it</option>
+        <option value="freelancer">I freelance but it's inconsistent / underpriced</option>
+        <option value="other">Something else</option>
+      </select>
+    </div>
+    <button type="submit">Apply Now — Free Strategy Call</button>
+  </form>
+  <div class="success" id="successMsg">
+    <div class="success-icon">✦</div>
+    <h2>Application received.</h2>
+    <p>Joel will be in touch via Instagram DM within 24 hours.<br>Make sure your DMs are open.</p>
+  </div>
+  <p class="disclaimer">Free · No obligation · Limited spots per cohort</p>
+</div>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  // OPTION A: Replace with your form endpoint
+  // fetch("YOUR_ENDPOINT", {method:"POST",body:new FormData(e.target)});
+  // OPTION B: Redirect to Calendly
+  // window.location.href = "YOUR_CALENDLY_LINK";
+  document.getElementById('applyForm').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+</script>
+</body>
+</html>
