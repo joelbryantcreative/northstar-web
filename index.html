@@ -293,19 +293,19 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
 .brand-work{border-top:1px solid var(--border);}
 .brand-intro{max-width:680px;margin-bottom:64px;}
-.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-.brand-card{background:var(--bg);transition:background 0.3s;display:flex;flex-direction:column;}
-.brand-card:hover{background:var(--bg2);}
-.brand-card-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;background:transparent;border:none;}
+.brand-card{background:var(--gold);transition:transform 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;}
+.brand-card:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.brand-card-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);border-radius:12px 12px 0 0;flex-shrink:0;}
 .brand-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
 .brand-card:hover .brand-card-img img{transform:scale(1.04);}
 .brand-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--cream);}
-.brand-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,22,17,0.7) 0%,transparent 60%);}
-.brand-card-type{position:absolute;bottom:12px;left:14px;font-family:var(--sans);font-size:0.55rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);z-index:2;}
-.brand-card-body{padding:22px 24px 28px;}
-.brand-card-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:8px;line-height:1.25;}
-.brand-card-desc{font-size:0.82rem;line-height:1.7;color:var(--cream2);}
-@media(max-width:960px){.brand-grid{grid-template-columns:1fr 1fr;}}
+.brand-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,22,17,0.5) 0%,transparent 60%);}
+.brand-card-type{position:absolute;bottom:12px;left:14px;font-family:var(--sans);font-size:0.55rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);z-index:2;}
+.brand-card-body{padding:20px 22px 24px;}
+.brand-card-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:#28221b;margin-bottom:6px;line-height:1.25;}
+.brand-card-desc{font-size:0.82rem;line-height:1.7;color:rgba(40,34,27,0.7);}
+@media(max-width:960px){.brand-grid{grid-template-columns:1fr 1fr;gap:12px;}}
 @media(max-width:600px){.brand-grid{grid-template-columns:1fr;}}
 
 
@@ -566,44 +566,6 @@ section, .sec, .cred-strip, .learn-transition, footer,
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ── FLOWING WOOD FEATURE ── -->
-<section class="sec fw" id="flowing-wood">
-  <div class="wrap">
-    <div class="fw-grid">
-      <div>
-        <p class="tag-label reveal">Featured Film</p>
-        <h2 class="fw-headline reveal">Flowing<br><em>Wood.</em></h2>
-        <p class="fw-tagline reveal">"Painting country, on country, with country."</p>
-        <p class="fw-body reveal">A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes — navigating themes of nature, solitude, and healing.</p>
-        <p class="fw-body reveal"><strong>Flowing Wood</strong> is Joel's debut feature documentary. Shot across Australia's wild coastlines, it became the first independently produced Byron Bay film to win Best Film at the Byron Bay Film Festival, and was selected for international festivals across two continents.</p>
-        <div class="laurels reveal">
-          <div class="laurel">
-            <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
-            <div class="laurel-info"><p class="laurel-name">Byron Bay Film Festival</p><p class="laurel-detail">Winner · Best Byron Bay Film — BBFF2025</p></div>
-          </div>
-          <div class="laurel">
-            <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
-            <div class="laurel-info"><p class="laurel-name">Noosa Film Festival</p><p class="laurel-detail">Official Selection · 2025</p></div>
-          </div>
-          <div class="laurel">
-            <div class="laurel-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a07830" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
-            <div class="laurel-info"><p class="laurel-name">France Anglet International Surf Film Festival</p><p class="laurel-detail">Official Selection · 2025</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="fw-right">
-        <div class="fw-poster reveal">
-          <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood — A film by Joel Bryant">
-        </div>
-        <div class="yt-wrap reveal">
-          <iframe src="https://www.youtube.com/embed/8GG6SbLBU90" title="Flowing Wood" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p class="yt-caption reveal">Watch the film · Flowing Wood · 2025</p>
-      </div>
-    </div>
   </div>
 </section>
 
