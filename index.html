@@ -110,15 +110,16 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 /* ── SPINE TIMELINE ── */
 .tl-spine{position:relative;padding:0 0 20px;}
 .tl-spine::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(244,239,230,0.25) 5%,rgba(244,239,230,0.25) 95%,transparent);transform:translateX(-50%);}
-.tl-item{display:grid;grid-template-columns:1fr 48px;gap:0;position:relative;min-height:160px;}
-.tl-item.right{grid-template-columns:48px 1fr;}
+.tl-item{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;position:relative;min-height:120px;}
 .tl-item:last-child{margin-bottom:0;}
-.tl-card{border:1px solid rgba(244,239,230,0.08);border-radius:10px;padding:28px 32px 28px 32px;transition:background 0.3s;position:relative;overflow:visible;background:var(--bg);}
-.tl-card:hover{background:var(--bg2);}
+.tl-card{background:var(--bg);border:1px solid rgba(244,239,230,0.08);border-radius:10px;padding:28px 32px;transition:background 0.3s,transform 0.3s;position:relative;overflow:visible;}
+.tl-card:hover{background:var(--bg2);transform:translateY(-2px);}
 .tl-item.left .tl-card{grid-column:1;grid-row:1;margin-right:24px;}
 .tl-item.left .tl-spacer{grid-column:2;grid-row:1;}
-.tl-item.right .tl-spacer{grid-column:1;grid-row:1;}
-.tl-item.right .tl-card{grid-column:2;grid-row:1;margin-left:24px;}
+.tl-item.left .tl-polaroid-wrap{grid-column:3;grid-row:1;}
+.tl-item.right .tl-polaroid-wrap{grid-column:1;grid-row:1;}
+.tl-item.right .tl-spacer{grid-column:2;grid-row:1;}
+.tl-item.right .tl-card{grid-column:3;grid-row:1;margin-left:24px;}
 .tl-spacer{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:28px;gap:0;position:relative;z-index:2;}
 .tl-node{width:12px;height:12px;border-radius:50%;background:#28221b;border:2px solid var(--amber);flex-shrink:0;position:relative;}
 .tl-node::after{content:'';position:absolute;inset:-4px;border-radius:50%;background:rgba(40,34,27,0.1);}
@@ -127,20 +128,19 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 .tl-year-label{font-family:var(--serif);font-style:italic;font-size:clamp(2rem,3vw,3rem);font-weight:400;color:var(--cream);line-height:1;margin-bottom:4px;display:block;}
 .tl-title{font-size:0.95rem;font-weight:700;color:var(--cream);margin-bottom:8px;line-height:1.3;}
 .tl-desc{font-size:0.84rem;line-height:1.8;color:var(--cream2);}
-.tl-polaroid{background:#f5f0e8;padding:12px 12px 44px;box-shadow:0 8px 40px rgba(0,0,0,0.55),0 2px 12px rgba(0,0,0,0.3);width:var(--size,200px);position:absolute;z-index:10;opacity:1;transform:rotate(var(--rot,3deg));transition:opacity 0.8s ease,transform 0.8s ease;}
-.tl-polaroid.will-animate{opacity:0;transform:rotate(var(--rot,3deg)) translateY(16px);}
+.tl-polaroid-wrap{display:flex;align-items:flex-start;justify-content:center;padding:20px 0;}
+.tl-polaroid{background:#f5f0e8;padding:12px 12px 44px;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 10px rgba(0,0,0,0.25);width:var(--size,200px);flex-shrink:0;opacity:1;transform:rotate(var(--rot,3deg));transition:opacity 0.8s ease,transform 0.8s ease;}
+.tl-polaroid.will-animate{opacity:0;transform:rotate(var(--rot,3deg)) translateY(20px);}
 .tl-polaroid.visible{opacity:1;transform:rotate(var(--rot,3deg));}
-.tl-item.left .tl-card .tl-polaroid{top:var(--ty,-18px);right:var(--tx,-80px);}
-.tl-item.right .tl-card .tl-polaroid{top:var(--ty,-18px);left:var(--tx,-80px);}
-.tl-polaroid-img{aspect-ratio:1;overflow:hidden;background:#c8bfb0;width:100%;}
+.tl-polaroid-img{aspect-ratio:1;overflow:hidden;background:#c8bfb0;width:100%;display:flex;align-items:center;justify-content:center;}
 .tl-polaroid-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .tl-polaroid-caption{font-family:var(--serif);font-style:italic;font-size:0.75rem;color:rgba(40,34,27,0.45);text-align:center;margin-top:12px;line-height:1.3;}
 @media(max-width:760px){
   .tl-spine::before{left:20px;}
-  .tl-item,.tl-item.right{grid-template-columns:40px 1fr;}
+  .tl-item{grid-template-columns:40px 1fr;}
   .tl-item.left .tl-card,.tl-item.right .tl-card{grid-column:2;grid-row:1;margin:0 0 0 16px;}
   .tl-item.left .tl-spacer,.tl-item.right .tl-spacer{grid-column:1;grid-row:1;}
-  .tl-polaroid{display:none;}
+  .tl-item.left .tl-polaroid-wrap,.tl-item.right .tl-polaroid-wrap{display:none;}
 }
 
 /* ── PORTFOLIO ── */
@@ -713,19 +713,19 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
       <div class="tl-item left">
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:-6deg;--size:220px;--ty:-24px;--tx:-75px;"><div class="tl-polaroid-img"><img src="images/Polaroid-1.jpg" alt="2014"></div><p class="tl-polaroid-caption">The Kimberleys, 2014</p></div>
           <span class="tl-year">2014</span>
           <span class="tl-year-label">Age 14</span>
           <p class="tl-title">A GoPro changes everything</p>
           <p class="tl-desc">A camera gave creativity a language. A trip through the Kimberleys opened the world. The connection between a lens and something real was made — and never lost.</p>
         </div>
         <div class="tl-spacer"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:-6deg;--size:220px;"><div class="tl-polaroid-img"><img src="images/Polaroid-1.jpg" alt="2014"></div><p class="tl-polaroid-caption">The Kimberleys, 2014</p></div></div>
       </div>
 
       <div class="tl-item right">
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:5deg;--size:190px;"><div class="tl-polaroid-img"><img src="images/Polaroid-2.jpg" alt="2018"></div><p class="tl-polaroid-caption">First paid gig, 2018</p></div></div>
         <div class="tl-spacer"><div class="tl-node"></div><div class="tl-connector"></div></div>
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:5deg;--size:190px;--ty:-20px;--tx:-65px;"><div class="tl-polaroid-img"><img src="images/Polaroid-2.jpg" alt="2018"></div><p class="tl-polaroid-caption">First paid gig, 2018</p></div>
           <span class="tl-year">2018</span>
           <span class="tl-year-label">Age 17</span>
           <p class="tl-title">First paid work — real estate videos</p>
@@ -735,19 +735,19 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
       <div class="tl-item left">
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:-3deg;--size:240px;--ty:-16px;--tx:-90px;"><div class="tl-polaroid-img"><img src="images/Polaroid-3.jpg" alt="2020"></div><p class="tl-polaroid-caption">Western Australia, 2020</p></div>
           <span class="tl-year">2020</span>
           <span class="tl-year-label">Age 20</span>
           <p class="tl-title">YBS Youngbloods — Lead Videographer & Editor</p>
           <p class="tl-desc">Moved to Western Australia to work inside one of YouTube's biggest ocean adventure channels with Brodie Moss. Helped grow Wade Pappenfus from 25K to over one million subscribers.</p>
         </div>
         <div class="tl-spacer"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:-3deg;--size:240px;"><div class="tl-polaroid-img"><img src="images/Polaroid-3.jpg" alt="2020"></div><p class="tl-polaroid-caption">Western Australia, 2020</p></div></div>
       </div>
 
       <div class="tl-item right">
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:7deg;--size:210px;"><div class="tl-polaroid-img"><img src="images/Polaroid-4.jpg" alt="2024"></div><p class="tl-polaroid-caption">Byron Bay, 2024</p></div></div>
         <div class="tl-spacer"><div class="tl-node"></div><div class="tl-connector"></div></div>
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:7deg;--size:210px;--ty:-28px;--tx:-72px;"><div class="tl-polaroid-img"><img src="images/Polaroid-4.jpg" alt="2024"></div><p class="tl-polaroid-caption">Byron Bay, 2024</p></div>
           <span class="tl-year">2024</span>
           <span class="tl-year-label">Age 23</span>
           <p class="tl-title">The leap — Byron Bay</p>
@@ -757,19 +757,19 @@ section, .sec, .cred-strip, .learn-transition, footer,
 
       <div class="tl-item left">
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:-5deg;--size:230px;--ty:-20px;--tx:-85px;"><div class="tl-polaroid-img"><img src="images/Polaroid-5.jpg" alt="2025"></div><p class="tl-polaroid-caption">Flowing Wood, 2025</p></div>
           <span class="tl-year">2025</span>
           <span class="tl-year-label">Age 24</span>
           <p class="tl-title">Flowing Wood — Best Byron Bay Film, BBFF2025</p>
           <p class="tl-desc">Flowing Wood selected for Byron Bay Film Festival (winner), Noosa Film Festival, and France Anglet International Surf Film Festival. Three international selections.</p>
         </div>
         <div class="tl-spacer"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:-5deg;--size:230px;"><div class="tl-polaroid-img"><img src="images/Polaroid-5.jpg" alt="2025"></div><p class="tl-polaroid-caption">Flowing Wood, 2025</p></div></div>
       </div>
 
       <div class="tl-item right">
+        <div class="tl-polaroid-wrap"><div class="tl-polaroid" style="--rot:4deg;--size:200px;"><div class="tl-polaroid-img"><img src="images/Polaroid-6.jpg" alt="Now"></div><p class="tl-polaroid-caption">Byron Bay, now</p></div></div>
         <div class="tl-spacer"><div class="tl-node"></div></div>
         <div class="tl-card">
-          <div class="tl-polaroid" style="--rot:4deg;--size:200px;--ty:-14px;--tx:-68px;"><div class="tl-polaroid-img"><img src="images/Polaroid-6.jpg" alt="Now"></div><p class="tl-polaroid-caption">Byron Bay, now</p></div>
           <span class="tl-year-label">Now</span>
           <p class="tl-title">Giving filmmakers the path I never had</p>
           <p class="tl-desc">Teaching the full system — craft, brand, income, and meaningful work — while continuing to tell the stories that matter. Everything built the hard way, now passed on so others don't have to figure it out alone.</p>
