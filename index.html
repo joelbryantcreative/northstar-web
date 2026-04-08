@@ -213,6 +213,20 @@ section, .sec, .cred-strip, .learn-transition, footer,
 }
 
 
+/* ── WORK TABS ── */
+.work-tabs{background:var(--bg);border-top:1px solid var(--border);}
+.wt-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px;flex-wrap:wrap;}
+.wt-heading-block{flex:1;min-width:280px;}
+.wt-headline{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4vw,5rem);line-height:1.06;color:var(--cream);}
+.wt-headline em{font-style:italic;color:var(--gold);}
+.wt-tabs{display:flex;gap:0;border:1px solid var(--border2);align-self:flex-end;flex-shrink:0;}
+.wt-tab{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;background:transparent;color:rgba(244,239,230,0.45);border:none;cursor:pointer;transition:all 0.2s;position:relative;}
+.wt-tab+.wt-tab{border-left:1px solid var(--border2);}
+.wt-tab.active{background:var(--gold);color:var(--bg);}
+.wt-tab:not(.active):hover{color:var(--cream);background:rgba(244,239,230,0.04);}
+.wt-panel{display:none;}
+.wt-panel.active{display:block;}
+
 /* ── TWO-DOOR WORK ENTRY ── */
 .work-entry{background:var(--bg);border-top:1px solid var(--border);padding:120px 6vw;}
 .work-entry-intro{max-width:680px;margin-bottom:64px;}
@@ -360,238 +374,153 @@ section, .sec, .cred-strip, .learn-transition, footer,
   </div>
 </section>
 
-<!-- ── WORK ENTRY ── -->
-<section class="work-entry" id="work">
+<!-- ── WORK (TABBED) ── -->
+<section class="sec work-tabs" id="work">
   <div class="wrap">
-    <div class="work-entry-intro">
-      <p class="tag-label-light reveal">The work</p>
-      <h2 class="work-entry-headline reveal">Two kinds of <em>work.</em></h2>
-      <p class="work-entry-sub reveal">Documentary filmmaking is the foundation. Brand and commercial work is where that craft meets the real world. Both are made with the same level of intention.</p>
+
+    <div class="wt-header">
+      <div class="wt-heading-block">
+        <p class="tag-label-light reveal">The work</p>
+        <h2 class="wt-headline reveal">Everything I've <em>made.</em></h2>
+      </div>
+      <div class="wt-tabs">
+        <button class="wt-tab active" data-tab="documentary">Documentary & Storytelling</button>
+        <button class="wt-tab" data-tab="brand">Brand & Commercial</button>
+      </div>
     </div>
-    <div class="work-doors">
 
-      <a class="work-door work-door-primary reveal" href="#portfolio">
-        <div>
-          <p class="door-eyebrow">Documentary & Storytelling</p>
-          <h3 class="door-title">Films that go<br>beneath the <em>surface.</em></h3>
-          <p class="door-desc">Long-form documentary work built around meaning, craft, and the subjects that deserve more than surface treatment. Festival-selected. Internationally screened.</p>
-        </div>
-        <div class="door-footer">
-          <div class="door-items">
-            <span class="door-item">Flowing Wood — BBFF2025 Winner</span>
-            <span class="door-item">Koud Retreat</span>
-            <span class="door-item">No Taps Kenya</span>
+    <!-- ── DOCUMENTARY PANEL ── -->
+    <div class="wt-panel active" id="wt-documentary">
+      <div class="film-cards">
+
+        <div class="film-card reveal">
+          <div class="fc-image">
+            <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood">
           </div>
-          <span class="door-arrow">↓</span>
-        </div>
-      </a>
-
-      <a class="work-door reveal" href="#brand-work">
-        <div>
-          <p class="door-eyebrow">Brand & Commercial</p>
-          <h3 class="door-title">Cinematic work<br>for brands that <em>matter.</em></h3>
-          <p class="door-desc">Shorter-form commercial storytelling for businesses, founders, and organisations with something real to say. Documentary depth applied to commercial briefs.</p>
-        </div>
-        <div class="door-footer">
-          <div class="door-items">
-            <span class="door-item">Bytropic Nutrition</span>
-            <span class="door-item">Rogue Watches</span>
-            <span class="door-item">Grün Resort Bali</span>
+          <div class="fc-body">
+            <p class="fc-type">Documentary · Festival Selected · 2025</p>
+            <h3 class="fc-title">Flowing Wood</h3>
+            <p class="fc-tagline">"Painting country, on country, with country."</p>
+            <p class="fc-desc">A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes — navigating themes of nature, solitude, and healing.</p>
+            <div class="fc-meta">
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>BBFF2025 Best Byron Bay Film</span>
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>Noosa Film Festival · France Anglet International Surf Film Festival</span>
+            </div>
           </div>
-          <span class="door-arrow">↓</span>
         </div>
-      </a>
 
+        <div class="film-card reveal">
+          <div class="fc-image">
+            <img src="images/Koud-placeholder.png" alt="Koud Retreat">
+          </div>
+          <div class="fc-body">
+            <p class="fc-type">Documentary · Storytelling</p>
+            <h3 class="fc-title">Koud Retreat</h3>
+            <p class="fc-desc">A documentary exploring the stillness and intention behind retreat — what it means to step away from the noise, return to something essential, and find clarity in the act of slowing down.</p>
+            <div class="fc-meta">
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="film-card reveal">
+          <div class="fc-image">
+            <img src="images/CONVIVIO-placeholder.png" alt="Convivio Launch">
+          </div>
+          <div class="fc-body">
+            <p class="fc-type">Documentary · Storytelling</p>
+            <h3 class="fc-title">Convivio Launch</h3>
+            <p class="fc-desc">A documentary about gathering — about the table as a place of meaning, the ritual of sharing food and conversation, and what it reveals about the people who come together around it.</p>
+            <div class="fc-meta">
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="film-card reveal">
+          <div class="fc-image">
+            <img src="images/Kenya-placeholder.jpg" alt="No Taps Kenya">
+          </div>
+          <div class="fc-body">
+            <p class="fc-type">Foundation Documentary</p>
+            <h3 class="fc-title">No Taps Kenya</h3>
+            <p class="fc-desc">A documentary following the work of a foundation bringing clean water access to communities in Kenya. A story about human need, generosity, and what it means to show up for strangers on the other side of the world.</p>
+            <div class="fc-meta">
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>Foundation Documentary</span>
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>Kenya</span>
+              <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+
+    <!-- ── BRAND PANEL ── -->
+    <div class="wt-panel" id="wt-brand">
+      <div class="brand-grid">
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <div class="brand-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Craved This</h3></div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <div class="brand-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Craved This</h3></div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <img src="images/Rogue-placeholder.gif" alt="Rogue Watches" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Commercial</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Rogue Watches</h3></div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <img src="images/Bytropic-placeholder.gif" alt="Bytropic Nutrition" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Bytropic Nutrition</h3></div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <div class="brand-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Fat Fish Bikes</h3></div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-img">
+            <div class="brand-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Grün Resort Bali</h3></div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
-
-<!-- ── PORTFOLIO ── -->
-<section class="sec portfolio" id="portfolio">
-  <div class="wrap">
-    <div class="portfolio-intro">
-      <p class="tag-label-light reveal">Documentary & Storytelling</p>
-      <h2 class="portfolio-headline reveal">Stories worth <em>telling.</em></h2>
-      <p class="portfolio-sub reveal">Documentary and storytelling work built around meaning, craft, and the subjects that deserve more than surface treatment.</p>
-    </div>
-    <div class="film-cards">
-
-      <!-- FLOWING WOOD -->
-      <div class="film-card reveal">
-        <div class="fc-image">
-          <img src="images/Flowing-Wood-Poster.jpg" alt="Flowing Wood">
-        </div>
-        <div class="fc-body">
-          <p class="fc-type">Documentary · Festival Selected · 2025</p>
-          <h3 class="fc-title">Flowing Wood</h3>
-          <p class="fc-tagline">"Painting country, on country, with country."</p>
-          <p class="fc-desc">A solitary traveler, surfer, and artist roams Australia's remote coastlines, turning weathered wood into stunning aerial seascapes — navigating themes of nature, solitude, and healing.</p>
-          <div class="fc-meta">
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>BBFF2025 Best Byron Bay Film</span>
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Noosa Film Festival · France Anglet International Surf Film Festival</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- KOUD RETREAT -->
-      <div class="film-card reveal">
-        <div class="fc-image">
-          <img src="images/Koud-placeholder.png" alt="Koud Retreat">
-        </div>
-        <div class="fc-body">
-          <p class="fc-type">Documentary · Storytelling</p>
-          <h3 class="fc-title">Koud Retreat</h3>
-          <p class="fc-tagline"></p>
-          <p class="fc-desc">A documentary exploring the stillness and intention behind retreat — what it means to step away from the noise, return to something essential, and find clarity in the act of slowing down.</p>
-          <div class="fc-meta">
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONVIVIO LAUNCH -->
-      <div class="film-card reveal">
-        <div class="fc-image">
-          <img src="images/CONVIVIO-placeholder.png" alt="Convivio Launch">
-        </div>
-        <div class="fc-body">
-          <p class="fc-type">Documentary · Storytelling</p>
-          <h3 class="fc-title">Convivio Launch</h3>
-          <p class="fc-tagline"></p>
-          <p class="fc-desc">A documentary about gathering — about the table as a place of meaning, the ritual of sharing food and conversation, and what it reveals about the people who come together around it.</p>
-          <div class="fc-meta">
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Documentary</span>
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- NO TAPS KENYA -->
-      <div class="film-card reveal">
-        <div class="fc-image">
-          <img src="images/Kenya-placeholder.jpg" alt="No Taps Kenya">
-        </div>
-        <div class="fc-body">
-          <p class="fc-type">Foundation Documentary</p>
-          <h3 class="fc-title">No Taps Kenya</h3>
-          <p class="fc-tagline"><!-- Add tagline --></p>
-          <p class="fc-desc">A documentary following the work of a foundation bringing clean water access to communities in Kenya. A story about human need, generosity, and what it means to show up for strangers on the other side of the world.</p>
-          <div class="fc-meta">
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Foundation Documentary</span>
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>Kenya</span>
-            <span class="fc-meta-item"><span class="fc-meta-dot"></span>A film by Joel Bryant</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── BRAND & COMMERCIAL WORK ── -->
-<section class="sec brand-work" id="brand-work">
-  <div class="wrap">
-    <div class="brand-intro">
-      <p class="tag-label reveal">Brand & Commercial Work</p>
-      <h2 class="portfolio-headline reveal">Cinematic storytelling<br><em>for brands that matter.</em></h2>
-      <p class="portfolio-sub reveal">Shorter-form commercial work for businesses, founders, and organisations with something real to say. Documentary depth applied to commercial briefs — content that earns attention rather than demanding it.</p>
-    </div>
-
-    <div class="brand-grid reveal">
-
-      <!-- CRAVED THIS — 1 -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <!-- Add image: <img src="images/craved-this-1.jpg" alt="Craved This"> -->
-          <div class="brand-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Brand Film</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Craved This</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-      <!-- CRAVED THIS — 2 -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <!-- Add image: <img src="images/craved-this-2.jpg" alt="Craved This"> -->
-          <div class="brand-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Brand Film</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Craved This</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-      <!-- ROGUE WATCHES -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <img src="images/Rogue-placeholder.gif" alt="Rogue Watches" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Commercial</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Rogue Watches</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-      <!-- BYTROPIC NUTRITION -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <img src="images/Bytropic-placeholder.gif" alt="Bytropic Nutrition" style="width:100%;height:100%;object-fit:cover;display:block;">
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Brand Film</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Bytropic Nutrition</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-      <!-- FAT FISH BIKES -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <!-- Add image: <img src="images/fat-fish-bikes.jpg" alt="Fat Fish Bikes"> -->
-          <div class="brand-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Brand Film</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Fat Fish Bikes</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-      <!-- GRÜN RESORT BALI -->
-      <div class="brand-card">
-        <div class="brand-card-img">
-          <div class="brand-placeholder">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75" opacity="0.2"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-          <div class="brand-card-overlay"></div>
-          <span class="brand-card-type">Brand Film</span>
-        </div>
-        <div class="brand-card-body">
-          <h3 class="brand-card-title">Grün Resort Bali</h3>
-          <p class="brand-card-desc"><!-- Add one-line description --></p>
-        </div>
-      </div>
-
-    </div><!-- /.brand-grid -->
-  </div><!-- /.wrap -->
-</section><!-- /.brand-work -->
 
 <!-- ── FLOWING WOOD FEATURE ── -->
 <section class="sec fw" id="flowing-wood">
@@ -820,6 +749,15 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.wt-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.wt-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.wt-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('wt-'+btn.dataset.tab).classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
