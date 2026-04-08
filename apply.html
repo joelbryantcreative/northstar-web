@@ -8,123 +8,341 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Canela Text';src:url('fonts/CanelaText-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Canela Text';src:url('fonts/CanelaText-RegularItalic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+@font-face{font-family:'Canela Text';src:url('fonts/CanelaText-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'SF Pro Display';src:url('fonts/SFProDisplay-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'SF Pro Display';src:url('fonts/SFProDisplay-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face{font-family:'SF Pro Display';src:url('fonts/SFProDisplay-Heavy.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap;}
 
-@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
-@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Heavy.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
-
-
-:root {
-  --bg: #28221b; --bg2: #3d3530; --bg3: #1e1e1e;
-  --cream: #f4efe6; --cream2: rgba(244,239,230,0.55); --cream3: rgba(244,239,230,0.25);
-  --gold: #e6c385; --golddim: rgba(230,195,133,0.12); --stone: #a99880;
-  --border: rgba(244,239,230,0.08); --border2: rgba(244,239,230,0.14);
-  --serif: 'Canela Text', Georgia, serif;
-  --sans: 'SF Pro Display', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
+:root{
+  --bg:#28221b;--bg2:#3d3530;--bg3:#2e2720;
+  --cream:#f4efe6;--cream2:rgba(244,239,230,0.6);--cream3:rgba(244,239,230,0.25);
+  --gold:#e6c385;--amber:#a07830;
+  --border:rgba(244,239,230,0.08);--border2:rgba(244,239,230,0.14);
+  --serif:'Canela Text',Georgia,serif;
+  --sans:'SF Pro Display',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;}
-body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight:300;min-height:100vh;display:flex;align-items:center;justify-content:center;-webkit-font-smoothing:antialiased;padding:24px;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
-.card{position:relative;z-index:1;width:100%;max-width:480px;background:var(--bg2);border:1px solid var(--border);padding:48px 44px 44px;animation:fadeUp 0.7s ease forwards;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.brand{display:flex;align-items:center;gap:9px;margin-bottom:36px;}
-.brand svg{width:20px;height:20px;flex-shrink:0;}
-.brand-text{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,239,230,0.35);}
-.brand-text em{font-style:normal;color:var(--gold);opacity:0.8;}
-.photo-wrap{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(230,195,133,0.3);margin-bottom:24px;}
-.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-.eyebrow{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
-h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.1;color:var(--cream);margin-bottom:8px;letter-spacing:-0.01em;}
-h1 em{font-style:italic;color:var(--gold);}
-.sub{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--cream2);margin-bottom:28px;line-height:1.45;}
-.bullets{list-style:none;margin-bottom:32px;border-top:1px solid var(--border);}
-.bullets li{display:flex;gap:12px;align-items:flex-start;font-size:0.86rem;line-height:1.6;color:var(--cream2);padding:11px 0;border-bottom:1px solid var(--border);}
-.bullets li::before{content:'✦';color:var(--gold);font-size:0.58rem;flex-shrink:0;margin-top:3px;opacity:0.7;}
-.rule{width:100%;height:1px;background:var(--border);margin-bottom:28px;}
-.form-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,230,0.35);display:block;margin-bottom:7px;}
-.form-field{margin-bottom:14px;}
-input[type=text],input[type=email],select{width:100%;background:rgba(244,239,230,0.05);border:1px solid var(--border);color:var(--cream);font-family:var(--sans);font-size:0.9rem;font-weight:300;padding:13px 16px;outline:none;transition:border-color 0.2s;-webkit-appearance:none;border-radius:0;}
-input[type=text]:focus,input[type=email]:focus,select:focus{border-color:rgba(230,195,133,0.5);background:rgba(244,239,230,0.07);}
-input::placeholder{color:rgba(244,239,230,0.2);}
+html{height:100%;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-weight:400;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;z-index:0;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:64px;
+  background:rgba(40,34,27,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  z-index:100;
+}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;}
+.nav-logo svg{width:18px;height:18px;}
+.nav-logo-text{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,230,0.5);}
+.nav-logo-text em{font-style:normal;color:var(--gold);}
+.nav-back{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream2);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s;}
+.nav-back:hover{color:var(--cream);}
+.nav-back::before{content:'←';}
+
+/* ── LAYOUT ── */
+.page{
+  min-height:100vh;
+  padding:64px 0 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+/* ── LEFT PANEL ── */
+.left{
+  position:sticky;top:64px;
+  height:calc(100vh - 64px);
+  overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:52px 56px;
+  background:var(--bg);
+}
+.left-bg{
+  position:absolute;inset:0;z-index:0;
+  background:url('images/Home-Cover.jpg') center center/cover no-repeat;
+  opacity:0.18;
+}
+.left-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(40,34,27,0.95) 0%,rgba(40,34,27,0.4) 60%,transparent 100%);
+}
+.left-content{position:relative;z-index:2;}
+.left-photo{
+  width:64px;height:64px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(230,195,133,0.35);
+  margin-bottom:24px;
+}
+.left-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.left-eyebrow{
+  font-family:var(--mono);font-size:0.54rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.left-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold);}
+.left-h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.4rem,3.5vw,3.8rem);
+  line-height:1.05;color:var(--cream);
+  margin-bottom:10px;letter-spacing:-0.01em;
+}
+.left-h1 em{font-style:italic;color:var(--gold);}
+.left-sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:1rem;color:var(--cream2);
+  margin-bottom:36px;line-height:1.5;
+}
+.bullets{list-style:none;border-top:1px solid var(--border2);}
+.bullets li{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:14px 0;border-bottom:1px solid var(--border);
+}
+.bullet-icon{
+  color:var(--gold);font-size:0.5rem;flex-shrink:0;
+  margin-top:4px;opacity:0.8;
+}
+.bullet-text{}
+.bullet-title{font-size:0.82rem;font-weight:500;color:var(--cream);margin-bottom:3px;line-height:1.4;}
+.bullet-desc{font-size:0.76rem;color:var(--cream2);line-height:1.6;}
+
+/* ── RIGHT PANEL ── */
+.right{
+  background:var(--bg2);
+  border-left:1px solid var(--border);
+  padding:52px 56px 52px;
+  display:flex;flex-direction:column;justify-content:center;
+  min-height:calc(100vh - 64px);
+}
+.form-header{margin-bottom:36px;}
+.form-eyebrow{
+  font-family:var(--mono);font-size:0.54rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(244,239,230,0.3);margin-bottom:12px;
+}
+.form-title{
+  font-family:var(--serif);font-weight:400;
+  font-size:1.8rem;line-height:1.15;color:var(--cream);
+  margin-bottom:6px;
+}
+.form-title em{font-style:italic;color:var(--gold);}
+.form-sub{font-size:0.84rem;color:var(--cream2);line-height:1.6;}
+.rule{width:100%;height:1px;background:var(--border);margin:28px 0;}
+.form-label{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(244,239,230,0.35);display:block;margin-bottom:7px;
+}
+.form-field{margin-bottom:16px;}
+input[type=text],input[type=email],select,textarea{
+  width:100%;background:rgba(244,239,230,0.04);
+  border:1px solid var(--border2);
+  color:var(--cream);font-family:var(--sans);
+  font-size:0.9rem;font-weight:400;
+  padding:14px 16px;outline:none;
+  transition:border-color 0.2s,background 0.2s;
+  -webkit-appearance:none;border-radius:0;
+}
+input[type=text]:focus,input[type=email]:focus,select:focus,textarea:focus{
+  border-color:rgba(230,195,133,0.5);
+  background:rgba(244,239,230,0.07);
+}
+input::placeholder,textarea::placeholder{color:rgba(244,239,230,0.2);}
+textarea{resize:vertical;min-height:90px;line-height:1.6;}
 select{cursor:pointer;}
 select option{background:var(--bg2);color:var(--cream);}
-button[type=submit]{width:100%;margin-top:6px;background:var(--gold);color:var(--bg);border:none;font-family:var(--mono);font-size:0.68rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;padding:16px;cursor:pointer;transition:background 0.25s;}
-button[type=submit]:hover{background:var(--cream);}
-.disclaimer{margin-top:14px;font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,239,230,0.2);text-align:center;line-height:1.6;}
-.success{display:none;text-align:center;padding:20px 0;}
-.success h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:10px;}
-.success p{font-size:0.88rem;color:var(--cream2);line-height:1.7;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.submit-btn{
+  width:100%;margin-top:8px;
+  background:var(--gold);color:var(--bg);
+  border:none;font-family:var(--mono);
+  font-size:0.66rem;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  padding:18px;cursor:pointer;
+  transition:background 0.25s,transform 0.15s;
+}
+.submit-btn:hover{background:var(--cream);}
+.submit-btn:active{transform:scale(0.99);}
+.disclaimer{
+  margin-top:14px;font-family:var(--mono);
+  font-size:0.5rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(244,239,230,0.2);
+  text-align:center;line-height:1.8;
+}
+.success{
+  display:none;text-align:center;padding:40px 0;
+}
 .success-icon{font-size:2rem;margin-bottom:16px;color:var(--gold);}
-@media(max-width:520px){.card{padding:36px 28px 32px;}}
+.success h2{
+  font-family:var(--serif);font-size:1.8rem;
+  font-weight:400;color:var(--cream);margin-bottom:12px;
+}
+.success p{font-size:0.88rem;color:var(--cream2);line-height:1.8;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .page{grid-template-columns:1fr;padding-top:56px;}
+  .nav{padding:0 5vw;height:56px;}
+
+  .left{
+    position:relative;top:auto;
+    height:auto;padding:44px 5vw 36px;
+  }
+  .left-h1{font-size:clamp(2rem,10vw,3rem);}
+
+  .right{
+    padding:36px 5vw 52px;
+    min-height:auto;
+    border-left:none;
+    border-top:1px solid var(--border);
+  }
+  .form-row{grid-template-columns:1fr;}
+  .submit-btn{padding:16px;}
+}
+
+@media(max-width:480px){
+  .left{padding:36px 5vw 28px;}
+  .right{padding:28px 5vw 44px;}
+  .left-h1{font-size:clamp(1.9rem,11vw,2.6rem);}
+  .bullets li{padding:12px 0;}
+  .bullet-desc{display:none;}
+}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="brand">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-back">Back to site</a>
+  <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#f4efe6" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#f4efe6" opacity="0.25"/></svg>
-    <span class="brand-text">Northstar <em>Academy</em></span>
+    <span class="nav-logo-text">Northstar <em>Academy</em></span>
+  </a>
+</nav>
+
+<div class="page">
+
+  <!-- LEFT — PITCH -->
+  <div class="left">
+    <div class="left-bg"></div>
+    <div class="left-overlay"></div>
+    <div class="left-content">
+      <div class="left-photo">
+        <img src="images/joel-dp.jpg" alt="Joel Bryant">
+      </div>
+      <p class="left-eyebrow">Apply to work with Joel</p>
+      <h1 class="left-h1">Turn your camera<br>or iPhone into<br><em>a career.</em></h1>
+      <p class="left-sub">Without selling out your creative vision.</p>
+      <ul class="bullets">
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <p class="bullet-title">Works with any camera or iPhone — any experience level</p>
+            <p class="bullet-desc">You don't need expensive gear or a film degree. If you can hold a camera or an iPhone, you have everything you need to start.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <p class="bullet-title">A clear system to go from filmmaker to consistent income</p>
+            <p class="bullet-desc">Not a collection of random tips — a step-by-step system covering craft, brand building, client acquisition, and pricing.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <p class="bullet-title">Direct mentorship, live group calls, real accountability</p>
+            <p class="bullet-desc">This isn't a course you buy and forget. You get direct access to Joel, live calls with the cohort, and a structure that keeps you moving.</p>
+          </div>
+        </li>
+        <li>
+          <span class="bullet-icon">✦</span>
+          <div class="bullet-text">
+            <p class="bullet-title">Limited spots — applications reviewed personally by Joel</p>
+            <p class="bullet-desc">Every application is read by Joel himself. This isn't a mass program — it's intentionally small so the mentorship is real.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="photo-wrap">
-    <img src="images/joel-dp.jpg" alt="Joel Bryant">
+
+  <!-- RIGHT — FORM -->
+  <div class="right">
+    <div class="form-header">
+      <p class="form-eyebrow">Free strategy call · No obligation</p>
+      <h2 class="form-title">Tell us<br><em>about yourself.</em></h2>
+      <p class="form-sub">Joel reviews every application personally. Fill this in honestly — it helps him understand where you're at and whether this is the right fit.</p>
+    </div>
+    <div class="rule"></div>
+    <form id="applyForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="instagram">Instagram handle</label>
+        <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="stage">Where are you right now?</label>
+        <select id="stage" name="stage" required>
+          <option value="" disabled selected>Select your situation</option>
+          <option value="hobbyist">I film for passion but earn nothing from it yet</option>
+          <option value="job">I have a 9-to-5 and want filmmaking to replace it</option>
+          <option value="freelancer">I freelance but it's inconsistent / underpriced</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="goal">What does success look like in 12 months?</label>
+        <textarea id="goal" name="goal" placeholder="Describe what you're working toward..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Apply Now — Free Strategy Call</button>
+    </form>
+    <div class="success" id="successMsg">
+      <div class="success-icon">✦</div>
+      <h2>Application received.</h2>
+      <p>Joel will be in touch via Instagram DM within 24 hours.<br>Make sure your DMs are open.</p>
+    </div>
+    <p class="disclaimer">Free · No obligation · Limited spots per cohort</p>
   </div>
-  <p class="eyebrow">Apply to work with Joel</p>
-  <h1>Turn your camera<br>or iPhone into<br><em>a career.</em></h1>
-  <p class="sub">Without selling out your creative vision.</p>
-  <ul class="bullets">
-    <li>Works with any camera or iPhone — any experience level</li>
-    <li>A clear system to go from filmmaker to consistent income</li>
-    <li>Direct mentorship, live group calls, real accountability</li>
-    <li>Limited spots — applications reviewed personally by Joel</li>
-  </ul>
-  <div class="rule"></div>
-  <form id="applyForm" onsubmit="handleSubmit(event)">
-    <div class="form-field">
-      <label class="form-label" for="name">Full name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="email">Email address</label>
-      <input type="email" id="email" name="email" placeholder="your@email.com" required>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="instagram">Instagram handle</label>
-      <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="stage">Where are you right now?</label>
-      <select id="stage" name="stage" required>
-        <option value="" disabled selected>Select your situation</option>
-        <option value="hobbyist">I film for passion but earn nothing from it yet</option>
-        <option value="job">I have a 9-to-5 and want filmmaking to replace it</option>
-        <option value="freelancer">I freelance but it's inconsistent / underpriced</option>
-        <option value="other">Something else</option>
-      </select>
-    </div>
-    <button type="submit">Apply Now — Free Strategy Call</button>
-  </form>
-  <div class="success" id="successMsg">
-    <div class="success-icon">✦</div>
-    <h2>Application received.</h2>
-    <p>Joel will be in touch via Instagram DM within 24 hours.<br>Make sure your DMs are open.</p>
-  </div>
-  <p class="disclaimer">Free · No obligation · Limited spots per cohort</p>
+
 </div>
+
 <script>
-function handleSubmit(e) {
+function handleSubmit(e){
   e.preventDefault();
-  // OPTION A: Replace with your form endpoint
-  // fetch("YOUR_ENDPOINT", {method:"POST",body:new FormData(e.target)});
-  // OPTION B: Redirect to Calendly
-  // window.location.href = "YOUR_CALENDLY_LINK";
   document.getElementById('applyForm').style.display='none';
   document.getElementById('successMsg').style.display='block';
 }
