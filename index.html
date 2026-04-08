@@ -296,21 +296,23 @@ footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-
   .htag{font-size:0.6rem;padding:6px 12px;}
   .about-grid{grid-template-columns:1fr;gap:0;}
   .about-left{display:contents;}
-  .about-intro{order:1;}
-  .about-img{order:2;margin:28px 0;}
+  .about-intro{order:1;padding-bottom:0;}
+  .about-intro .about-headline{margin-bottom:0;}
+  .about-img{order:2;margin:0;}
   .about-body-wrap{order:3;}
+  .about-quote-text{font-size:0.95rem!important;}
   .wt-header{flex-direction:column;align-items:flex-start;gap:24px;margin-bottom:36px;}
   .wt-heading-block{width:100%;}
   .wt-headline{font-size:clamp(1.8rem,7vw,2.4rem);}
   .wt-tabs{width:100%;}
   .wt-tab{flex:1;font-size:0.6rem;padding:12px 6px;text-align:center;}
-  .film-cards{gap:12px;}
+  .film-cards{gap:20px;}
   .film-card{grid-template-columns:1fr;height:auto;border-radius:10px;}
   .fc-image{width:100%;height:220px;border-radius:10px 10px 0 0;position:relative;}
   .fc-image img{position:absolute;inset:0;width:100%;height:100%;}
   .fc-body{padding:24px 20px;}
   .fc-title{font-size:1.4rem;}
-  .brand-grid{gap:10px;}
+  .brand-grid{gap:20px;}
   .fw-grid{grid-template-columns:1fr;gap:40px;}
   .work-doors{grid-template-columns:1fr;}
   .work-door{min-height:200px;padding:32px 28px;}
@@ -322,6 +324,17 @@ footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-
   .tl-cta{border-radius:8px;}
   .tl-cta-right{padding:36px 28px!important;}
   .tl-cta-heading{font-size:1.8rem;}
+  .tl-spine::before{left:24px;transform:none;}
+  .tl-item,.tl-item.right{grid-template-columns:36px 1fr!important;}
+  .tl-item.left .tl-card,.tl-item.right .tl-card{grid-column:2!important;grid-row:1;margin:0 0 0 14px!important;}
+  .tl-item.left .tl-spacer,.tl-item.right .tl-spacer{grid-column:1!important;grid-row:1;}
+  .tl-item.left .tl-polaroid-wrap,.tl-item.right .tl-polaroid-wrap{display:none!important;}
+  .tl-card{padding:20px 18px;}
+  .tl-year{font-size:2rem;}
+  .tl-year-label{font-size:0.9rem;}
+  .tl-intro{margin-bottom:40px;}
+  .tl-node{width:10px;height:10px;}
+  .tl-cta{margin-top:40px;}
   footer{flex-direction:column;gap:16px;text-align:center;}
   .footer-links{flex-wrap:wrap;justify-content:center;}
 }
@@ -534,7 +547,7 @@ section, .sec, .cred-strip, .learn-transition, footer,
           I picked up a camera at 14 and never put it down. Since then it's taken me across Australia, through Indonesia, Kenya, and beyond, documenting the people and stories that remind us what life is really about. My films have screened at international festivals. I've worked as Creative Director for some of the world's most-watched creators. And I've spent years building a creative life that funds itself... without compromising the work that matters.
         </p>
         <div class="reveal" style="margin-top:32px;padding:14px 20px;border-left:2px solid #a07830;background:rgba(160,120,48,0.05);">
-          <p style="font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.6;color:#28221b;margin-bottom:10px;">"My camera saved my life and gave me purpose, now I use it to tell stories that matter."</p>
+          <p class="about-quote-text" style="font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.6;color:#28221b;margin-bottom:10px;">"My camera saved my life and gave me purpose, now I use it to tell stories that matter."</p>
         </div>
       </div>
     </div>
