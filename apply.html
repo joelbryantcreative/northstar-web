@@ -606,11 +606,26 @@ function selectOpt(el){
 
 function handleSubmit(e){
   e.preventDefault();
-  document.getElementById('applyForm').style.display = 'none';
-  document.getElementById('formDisclaimer').style.display = 'none';
-  document.querySelector('.form-card').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
-  window.scrollTo({top:0, behavior:'smooth'});
+  const form = document.getElementById('applyForm');
+  const data = new FormData(form);
+
+  fetch('https://formspree.io/f/mjgpdykg', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if(res.ok){
+      form.style.display = 'none';
+      document.getElementById('formDisclaimer').style.display = 'none';
+      document.querySelector('.form-card').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  })
+  .catch(() => alert('Something went wrong. Please try again.'));
 }
 </script>
 </body>
