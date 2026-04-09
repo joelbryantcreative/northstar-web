@@ -14,208 +14,389 @@
 @font-face{font-family:'SF Pro Display';src:url('fonts/SFProDisplay-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
 
 :root{
-  --bg:#28221b;--bg2:#3d3530;
-  --cream:#f4efe6;--cream2:rgba(244,239,230,0.55);
-  --gold:#e6c385;
-  --border:rgba(244,239,230,0.1);
+  --bg:#28221b;--bg2:#3d3530;--bg3:#322b24;
+  --cream:#f4efe6;--cream2:rgba(244,239,230,0.55);--cream3:rgba(244,239,230,0.12);
+  --gold:#e6c385;--amber:#a07830;
+  --border:rgba(244,239,230,0.1);--border2:rgba(244,239,230,0.18);
   --serif:'Canela Text',Georgia,serif;
   --sans:'SF Pro Display',system-ui,sans-serif;
   --mono:'DM Mono',monospace;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
-  background:var(--bg);color:var(--cream);
-  font-family:var(--sans);font-weight:400;
-  min-height:100vh;-webkit-font-smoothing:antialiased;
-  padding:48px 24px 80px;
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--sans);
+  font-weight:400;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
 }
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
 
-.wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;}
+/* ── PAGE WRAPPER ── */
+.page{position:relative;z-index:1;}
 
-.back{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(244,239,230,0.3);text-decoration:none;margin-bottom:48px;transition:color 0.2s;}
-.back:hover{color:var(--cream2);}
-.back::before{content:'←';}
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding:72px 24px 64px;
+  border-bottom:1px solid var(--border);
+}
+.logo{
+  display:inline-flex;align-items:center;gap:10px;
+  text-decoration:none;margin-bottom:48px;
+}
+.logo svg{width:24px;height:24px;}
+.logo-text{
+  font-family:var(--mono);font-size:0.62rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(244,239,230,0.4);
+}
+.logo-text em{font-style:normal;color:var(--gold);}
+.hero-photo{
+  width:80px;height:80px;border-radius:50%;
+  overflow:hidden;border:2px solid rgba(230,195,133,0.3);
+  margin:0 auto 28px;
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:0.56rem;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:24px;height:1px;background:var(--gold);opacity:0.6;}
+.hero-h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  line-height:1.08;color:var(--cream);
+  margin-bottom:14px;max-width:640px;margin-left:auto;margin-right:auto;
+}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.05rem;color:var(--cream2);
+  line-height:1.5;max-width:420px;
+  margin:0 auto;
+}
 
-.brand{display:flex;align-items:center;gap:9px;margin-bottom:44px;}
-.brand svg{width:22px;height:22px;flex-shrink:0;}
-.brand-text{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,239,230,0.4);}
-.brand-text em{font-style:normal;color:var(--gold);}
+/* ── BULLETS STRIP ── */
+.bullets-strip{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  gap:0;border-bottom:1px solid var(--border);
+}
+.bullet-item{
+  display:flex;align-items:center;gap:10px;
+  padding:20px 32px;
+  border-right:1px solid var(--border);
+  font-size:0.8rem;color:var(--cream2);line-height:1.4;
+  flex:1;min-width:200px;
+}
+.bullet-item:last-child{border-right:none;}
+.bullet-dot{color:var(--gold);font-size:0.5rem;flex-shrink:0;opacity:0.8;}
 
-.photo-wrap{width:64px;height:64px;border-radius:50%;overflow:hidden;border:2px solid rgba(230,195,133,0.3);margin-bottom:20px;}
-.photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+/* ── FORM SECTION ── */
+.form-section{
+  max-width:640px;
+  margin:0 auto;
+  padding:64px 24px 100px;
+}
+.form-header{
+  text-align:center;
+  margin-bottom:52px;
+}
+.form-header-label{
+  font-family:var(--mono);font-size:0.54rem;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(244,239,230,0.3);margin-bottom:12px;
+}
+.form-header-title{
+  font-family:var(--serif);font-weight:400;
+  font-size:1.6rem;color:var(--cream);
+}
 
-.eyebrow{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:'';width:16px;height:1px;background:var(--gold);}
-
-h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6vw,3rem);line-height:1.08;color:var(--cream);margin-bottom:10px;}
-h1 em{font-style:italic;color:var(--gold);}
-
-.sub{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--cream2);margin-bottom:36px;line-height:1.55;}
-
-.bullets{list-style:none;border-top:1px solid var(--border);margin-bottom:44px;}
-.bullets li{display:flex;gap:12px;align-items:flex-start;font-size:0.85rem;line-height:1.65;color:var(--cream2);padding:12px 0;border-bottom:1px solid var(--border);}
-.bullets li::before{content:'✦';color:var(--gold);font-size:0.5rem;flex-shrink:0;margin-top:4px;opacity:0.7;}
-
-.divider{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
-.divider-line{flex:1;height:1px;background:var(--border);}
-.divider-text{font-family:var(--mono);font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(244,239,230,0.25);white-space:nowrap;}
-
-.form-label{
+/* ── FORM FIELDS ── */
+.form-field{margin-bottom:36px;}
+.form-q{
   font-family:var(--sans);font-size:1rem;
-  font-weight:400;letter-spacing:0;text-transform:none;
-  color:var(--cream);display:block;margin-bottom:10px;
+  font-weight:400;color:var(--cream);
+  margin-bottom:12px;line-height:1.4;
 }
-.form-field{margin-bottom:32px;}
+.form-q sup{color:var(--gold);font-size:0.65rem;margin-left:3px;}
 
-input[type=text],input[type=email],input[type=tel],select{
-  width:100%;background:transparent;
-  border:none;border-bottom:1px solid rgba(244,239,230,0.15);
-  color:var(--cream);font-family:var(--sans);font-size:0.95rem;font-weight:400;
-  padding:10px 0;outline:none;
-  transition:border-color 0.2s;-webkit-appearance:none;border-radius:0;
+input[type=text],
+input[type=email],
+input[type=tel],
+select{
+  width:100%;
+  background:var(--cream3);
+  border:1px solid var(--border2);
+  color:var(--cream);
+  font-family:var(--sans);font-size:0.95rem;font-weight:400;
+  padding:16px 18px;
+  outline:none;
+  transition:border-color 0.2s,background 0.2s;
+  -webkit-appearance:none;border-radius:4px;
 }
-input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus,select:focus{border-bottom-color:var(--gold);}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+select:focus{
+  border-color:rgba(230,195,133,0.5);
+  background:rgba(244,239,230,0.08);
+}
 input::placeholder{color:rgba(244,239,230,0.2);}
 select{cursor:pointer;color:rgba(244,239,230,0.3);}
 select.has-value{color:var(--cream);}
 select option{background:var(--bg2);color:var(--cream);}
 
-.phone-wrap{display:flex;align-items:flex-end;gap:0;border-bottom:1px solid rgba(244,239,230,0.15);transition:border-color 0.2s;}
-.phone-wrap:focus-within{border-bottom-color:var(--gold);}
-.country-select-wrap{position:relative;display:flex;align-items:center;gap:6px;padding:10px 12px 10px 0;flex-shrink:0;cursor:pointer;border-right:1px solid rgba(244,239,230,0.1);}
-.country-select{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;z-index:2;}
-.dial-code{font-family:var(--sans);font-size:0.95rem;color:var(--cream);white-space:nowrap;pointer-events:none;}
-.chevron{color:rgba(244,239,230,0.3);flex-shrink:0;pointer-events:none;}
-.phone-wrap input[type=tel]{border:none;padding:10px 0 10px 12px;flex:1;}
-.phone-wrap input[type=tel]:focus{border-bottom:none;}
-.submit-btn{width:100%;margin-top:8px;background:#28221b;color:var(--cream);border:1px solid rgba(244,239,230,0.15);font-family:var(--sans);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px;cursor:pointer;transition:background 0.25s;border-radius:999px;}
+/* Phone */
+.phone-wrap{
+  display:flex;align-items:stretch;gap:0;
+}
+.country-select-wrap{
+  position:relative;display:flex;align-items:center;gap:6px;
+  background:var(--cream3);border:1px solid var(--border2);
+  border-right:none;border-radius:4px 0 0 4px;
+  padding:0 14px;flex-shrink:0;cursor:pointer;min-width:100px;
+  transition:border-color 0.2s;
+}
+.phone-wrap:focus-within .country-select-wrap{border-color:rgba(230,195,133,0.5);}
+.country-select-wrap select{
+  position:absolute;inset:0;opacity:0;cursor:pointer;
+  width:100%;border:none;background:transparent;border-radius:0;padding:0;
+}
+.dial-code{font-size:0.9rem;color:var(--cream);white-space:nowrap;pointer-events:none;}
+.chevron{color:rgba(244,239,230,0.3);flex-shrink:0;pointer-events:none;margin-left:4px;}
+.phone-wrap input[type=tel]{border-radius:0 4px 4px 0;}
+.phone-wrap:focus-within input[type=tel]{border-color:rgba(230,195,133,0.5);}
+
+/* Radio options */
+.radio-options{display:flex;flex-direction:column;gap:10px;}
+.radio-opt{
+  display:flex;align-items:center;gap:14px;
+  background:var(--cream3);border:1px solid var(--border2);
+  padding:16px 18px;border-radius:4px;cursor:pointer;
+  transition:border-color 0.2s,background 0.2s;
+}
+.radio-opt:hover{border-color:rgba(230,195,133,0.3);background:rgba(244,239,230,0.07);}
+.radio-opt input[type=radio]{display:none;}
+.radio-dot{
+  width:18px;height:18px;border-radius:50%;
+  border:1px solid var(--border2);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color 0.2s;
+}
+.radio-dot::after{
+  content:'';width:8px;height:8px;border-radius:50%;
+  background:var(--gold);opacity:0;transition:opacity 0.15s;
+}
+.radio-opt.selected{border-color:rgba(230,195,133,0.5);background:rgba(230,195,133,0.06);}
+.radio-opt.selected .radio-dot{border-color:var(--gold);}
+.radio-opt.selected .radio-dot::after{opacity:1;}
+.radio-label{font-size:0.9rem;color:var(--cream2);line-height:1.4;}
+.radio-opt.selected .radio-label{color:var(--cream);}
+
+/* Submit */
+.submit-btn{
+  width:100%;margin-top:8px;
+  background:#28221b;color:var(--cream);
+  border:1px solid rgba(244,239,230,0.2);
+  font-family:var(--sans);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:20px;cursor:pointer;
+  transition:background 0.25s;border-radius:999px;
+}
 .submit-btn:hover{background:#3d3530;}
 
-.disclaimer{margin-top:16px;font-family:var(--mono);font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,239,230,0.2);text-align:center;line-height:1.8;}
+.disclaimer{
+  margin-top:18px;font-family:var(--mono);font-size:0.5rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(244,239,230,0.2);text-align:center;line-height:1.8;
+}
 
-.success{display:none;text-align:center;padding:48px 0;animation:fadeUp 0.5s ease forwards;}
+/* Success */
+.success{
+  display:none;text-align:center;padding:64px 0;
+  animation:fadeUp 0.5s ease forwards;
+}
 .success-icon{font-size:2rem;margin-bottom:16px;color:var(--gold);}
-.success h2{font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--cream);margin-bottom:12px;}
-.success p{font-size:0.88rem;color:var(--cream2);line-height:1.8;}
+.success h2{font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--cream);margin-bottom:12px;}
+.success p{font-size:0.9rem;color:var(--cream2);line-height:1.8;margin-bottom:32px;}
+.success-btn{
+  display:inline-block;
+  background:#28221b;color:var(--cream);
+  border:1px solid rgba(244,239,230,0.2);
+  font-family:var(--sans);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:18px 48px;cursor:pointer;
+  transition:background 0.25s;border-radius:999px;
+  text-decoration:none;
+}
+.success-btn:hover{background:#3d3530;}
+
+/* Back */
+.back-wrap{text-align:center;padding:24px;}
+.back{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(244,239,230,0.25);text-decoration:none;
+  transition:color 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.back:hover{color:var(--cream2);}
+.back::before{content:'←';}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 
-@media(max-width:480px){
-  body{padding:32px 20px 64px;}
-  h1{font-size:clamp(1.9rem,9vw,2.6rem);}
-  .back{margin-bottom:36px;}
+/* ── MOBILE ── */
+@media(max-width:640px){
+  .hero{padding:52px 20px 48px;}
+  .bullets-strip{flex-direction:column;}
+  .bullet-item{border-right:none;border-bottom:1px solid var(--border);min-width:unset;}
+  .bullet-item:last-child{border-bottom:none;}
+  .form-section{padding:48px 20px 80px;}
+  .hero-h1{font-size:clamp(1.9rem,8vw,2.8rem);}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="page">
 
-  <a href="index.html" class="back">Back to site</a>
-
-  <div class="brand">
-    <svg viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#f4efe6" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#f4efe6" opacity="0.25"/></svg>
-    <span class="brand-text">Northstar <em>Academy</em></span>
-  </div>
-
-  <div class="photo-wrap">
-    <img src="images/joel-dp.jpg" alt="Joel Bryant">
-  </div>
-
-  <p class="eyebrow">Apply to work with Joel</p>
-  <h1>Turn your camera<br>or iPhone into<br><em>a career.</em></h1>
-  <p class="sub">Without selling out your creative vision.</p>
-
-  <ul class="bullets">
-    <li>Works with any camera or iPhone — any experience level</li>
-    <li>A clear system to go from filmmaker to consistent income</li>
-    <li>Direct mentorship, live group calls, real accountability</li>
-    <li>Limited spots — applications reviewed personally by Joel</li>
-  </ul>
-
-  <div class="divider">
-    <div class="divider-line"></div>
-    <span class="divider-text">Your application</span>
-    <div class="divider-line"></div>
-  </div>
-
-  <form id="applyForm" onsubmit="handleSubmit(event)">
-    <div class="form-field">
-      <label class="form-label" for="name">What's your full name?</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+  <!-- HERO -->
+  <div class="hero">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" fill="none"><polygon points="20,4 28,36 20,30 12,36" fill="#f4efe6" opacity="0.8"/><polygon points="20,30 28,36 20,4" fill="#f4efe6" opacity="0.25"/></svg>
+      <span class="logo-text">Northstar <em>Academy</em></span>
+    </a>
+    <div class="hero-photo">
+      <img src="images/joel-dp.jpg" alt="Joel Bryant">
     </div>
-    <div class="form-field">
-      <label class="form-label" for="email">What's your best email?</label>
-      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+    <p class="hero-eyebrow">Apply to work with Joel</p>
+    <h1 class="hero-h1">Turn your camera or iPhone<br>into <em>a career.</em></h1>
+    <p class="hero-sub">Without selling out your creative vision.</p>
+  </div>
+
+  <!-- BULLETS STRIP -->
+  <div class="bullets-strip">
+    <div class="bullet-item"><span class="bullet-dot">✦</span>Any camera or iPhone — any experience level</div>
+    <div class="bullet-item"><span class="bullet-dot">✦</span>A clear system from filmmaker to consistent income</div>
+    <div class="bullet-item"><span class="bullet-dot">✦</span>Direct mentorship &amp; live group calls</div>
+    <div class="bullet-item"><span class="bullet-dot">✦</span>Limited spots — reviewed personally by Joel</div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="form-header">
+      <p class="form-header-label">Free strategy call · No obligation</p>
+      <h2 class="form-header-title">Tell Joel a little about yourself</h2>
     </div>
-    <div class="form-field">
-      <label class="form-label" for="phone-number">Phone</label>
-      <div class="phone-wrap">
-        <div class="country-select-wrap">
-          <select id="country-code" name="country_code" class="country-select has-value" onchange="updateDialCode(this)">
-            <option value="+61" data-flag="🇦🇺" selected>🇦🇺 +61</option>
-            <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
-            <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
-            <option value="+64" data-flag="🇳🇿">🇳🇿 +64</option>
-            <option value="+1-CA" data-flag="🇨🇦">🇨🇦 +1</option>
-            <option value="+353" data-flag="🇮🇪">🇮🇪 +353</option>
-            <option value="+27" data-flag="🇿🇦">🇿🇦 +27</option>
-            <option value="+65" data-flag="🇸🇬">🇸🇬 +65</option>
-            <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
-            <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
-            <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
-            <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
-            <option value="+55" data-flag="🇧🇷">🇧🇷 +55</option>
-            <option value="+52" data-flag="🇲🇽">🇲🇽 +52</option>
-            <option value="+31" data-flag="🇳🇱">🇳🇱 +31</option>
-          </select>
-          <span class="dial-code" id="dial-display">🇦🇺 +61</span>
-          <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <input type="tel" id="phone-number" name="phone_number" placeholder="412 345 678" required>
+
+    <form id="applyForm" onsubmit="handleSubmit(event)">
+
+      <div class="form-field">
+        <p class="form-q">What's your full name?<sup>*</sup></p>
+        <input type="text" name="name" placeholder="Your name" required>
       </div>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="instagram">What's your Instagram handle or main social profile?</label>
-      <input type="text" id="instagram" name="instagram" placeholder="@yourhandle" required>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="stage">What best describes where you currently are on your journey?</label>
-      <select id="stage" name="stage" required onchange="this.classList.add('has-value')">
-        <option value="" disabled selected>Select your situation</option>
-        <option value="hobbyist">I film for passion but earn nothing from it yet</option>
-        <option value="job">I have a 9-to-5 and want filmmaking to replace it</option>
-        <option value="freelancer">I freelance but it's inconsistent / underpriced</option>
-        <option value="other">Something else</option>
-      </select>
-    </div>
-    <button type="submit" class="submit-btn">Apply Now — Free Strategy Call</button>
-  </form>
 
-  <div class="success" id="successMsg">
-    <div class="success-icon">✦</div>
-    <h2>Application received.</h2>
-    <p>One last step — book your free<br>discovery call with Joel below.</p>
-    <a href="YOUR_CALENDLY_LINK" target="_blank" class="submit-btn" style="display:block;margin-top:28px;text-decoration:none;text-align:center;">Book Your Discovery Call →</a>
-    <p class="disclaimer" style="margin-top:16px;">Free · 20 minutes · No obligation</p>
+      <div class="form-field">
+        <p class="form-q">What's your best email?<sup>*</sup></p>
+        <input type="email" name="email" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-field">
+        <p class="form-q">Phone<sup>*</sup></p>
+        <div class="phone-wrap">
+          <div class="country-select-wrap">
+            <select onchange="updateDialCode(this)">
+              <option value="+61" selected>🇦🇺 +61</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+64">🇳🇿 +64</option>
+              <option value="+1">🇨🇦 +1</option>
+              <option value="+353">🇮🇪 +353</option>
+              <option value="+27">🇿🇦 +27</option>
+              <option value="+65">🇸🇬 +65</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+33">🇫🇷 +33</option>
+            </select>
+            <span class="dial-code" id="dial-display">🇦🇺 +61</span>
+            <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <input type="tel" name="phone" placeholder="412 345 678" required>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <p class="form-q">What's your Instagram handle or main social profile?<sup>*</sup></p>
+        <input type="text" name="instagram" placeholder="@yourhandle" required>
+      </div>
+
+      <div class="form-field">
+        <p class="form-q">What best describes where you currently are on your journey?<sup>*</sup></p>
+        <div class="radio-options" id="stageOptions">
+          <label class="radio-opt" onclick="selectOpt(this)">
+            <input type="radio" name="stage" value="hobbyist" required>
+            <span class="radio-dot"></span>
+            <span class="radio-label">I film for passion but earn nothing from it yet</span>
+          </label>
+          <label class="radio-opt" onclick="selectOpt(this)">
+            <input type="radio" name="stage" value="job">
+            <span class="radio-dot"></span>
+            <span class="radio-label">I have a 9-to-5 and want filmmaking to replace it</span>
+          </label>
+          <label class="radio-opt" onclick="selectOpt(this)">
+            <input type="radio" name="stage" value="freelancer">
+            <span class="radio-dot"></span>
+            <span class="radio-label">I freelance but it's inconsistent / underpriced</span>
+          </label>
+          <label class="radio-opt" onclick="selectOpt(this)">
+            <input type="radio" name="stage" value="other">
+            <span class="radio-dot"></span>
+            <span class="radio-label">Something else</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Apply Now — Free Strategy Call</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      <div class="success-icon">✦</div>
+      <h2>Application received.</h2>
+      <p>One last step — book your free<br>discovery call with Joel below.</p>
+      <a href="https://calendly.com/joelbryant/discovery-call" target="_blank" class="success-btn">Book Your Discovery Call →</a>
+      <p class="disclaimer" style="margin-top:20px;">Free · 20 minutes · No obligation</p>
+    </div>
+
+    <p class="disclaimer" id="formDisclaimer">Free · No obligation · Limited spots per cohort</p>
   </div>
 
-  <p class="disclaimer">Free · No obligation · Limited spots per cohort</p>
+  <div class="back-wrap">
+    <a href="index.html" class="back">Back to site</a>
+  </div>
 
 </div>
 <script>
-const CALENDLY_URL = 'YOUR_CALENDLY_LINK';
+const CALENDLY_URL = 'https://calendly.com/joelbryant/discovery-call';
 
 function updateDialCode(sel){
-  const opt = sel.options[sel.selectedIndex];
-  document.getElementById('dial-display').textContent = opt.text.trim();
+  document.getElementById('dial-display').textContent = sel.options[sel.selectedIndex].text.trim();
+}
+
+function selectOpt(el){
+  document.querySelectorAll('.radio-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input[type=radio]').checked = true;
 }
 
 function handleSubmit(e){
   e.preventDefault();
-  document.getElementById('applyForm').style.display='none';
-  document.getElementById('successMsg').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('applyForm').style.display = 'none';
+  document.getElementById('formDisclaimer').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 </body>
