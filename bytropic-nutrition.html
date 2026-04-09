@@ -54,6 +54,10 @@ nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:
 /* VIDEO */
 .proj-video{background:#28221b;position:relative;width:100%;padding:40px 6vw;}
 .proj-video iframe{display:block;width:100%;aspect-ratio:16/9;border:none;border-radius:8px;}
+@media(max-width:768px){
+  .proj-video iframe{min-height:220px;}
+  .proj-video{padding:24px 4vw;}
+}
 
 /* CONTENT */
 .proj-content{padding:80px 6vw;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:96px;align-items:start;}
