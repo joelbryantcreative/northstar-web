@@ -32,8 +32,9 @@ nav{position:sticky;top:0;z-index:100;background:#28221b;padding:0 6vw;display:f
 .proj-type{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
 .proj-title{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7vw,8rem);line-height:0.96;color:var(--cream);}
 .proj-title em{font-style:italic;color:var(--gold);}
-.proj-video{background:#000;width:100%;}
-.proj-video iframe{display:block;width:100%;aspect-ratio:16/9;border:none;}
+.proj-video{background:#28221b;position:relative;width:100%;padding:40px 6vw;}
+.proj-video iframe{display:block;width:100%;aspect-ratio:16/9;border:none;border-radius:8px;}
+@media(max-width:768px){.proj-video iframe{min-height:220px;}.proj-video{padding:24px 4vw;}}
 .video-placeholder{width:100%;aspect-ratio:16/9;background:#111;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .video-placeholder p{font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,239,230,0.3);}
 .proj-content{padding:80px 6vw;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:96px;}
@@ -89,10 +90,7 @@ footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-
   </div>
 </div>
 <div class="proj-video">
-  <div class="video-placeholder">
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(244,239,230,0.15)" stroke-width="0.75"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="rgba(244,239,230,0.15)" stroke="none"/></svg>
-    <p>Add video embed URL to activate</p>
-  </div>
+  <iframe src="https://player.vimeo.com/video/1181448104?title=0&byline=0&portrait=0&logo=0&color=e6c385" title="Koud Retreat — Joel Bryant" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 </div>
 <div class="proj-content">
   <div>
