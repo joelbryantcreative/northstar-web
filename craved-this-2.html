@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craved This II — Joel Bryant</title>
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<style>
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Canela Text'; src: url('fonts/CanelaText-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SF Pro Display'; src: url('fonts/SFProDisplay-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+
+:root {
+  --bg: #28221b; --bg2: #3d3530; --bg3: #1e1e1e;
+  --cream: #f4efe6; --cream2: rgba(244,239,230,0.85); --cream3: rgba(244,239,230,0.65);
+  --gold: #e6c385; --stone: #a99880; --amber: #a07830;
+  --border: rgba(244,239,230,0.08); --border2: rgba(244,239,230,0.22);
+  --serif: 'Canela Text', Georgia, serif;
+  --sans: 'SF Pro Display', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* NAV */
+.announce{background:#e6c385;color:#28221b;text-align:center;padding:10px 6vw;font-family:var(--sans);font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+.announce a{color:#28221b;text-decoration:none;border-bottom:1px solid rgba(40,34,27,0.4);}
+nav{position:sticky;top:0;left:0;right:0;z-index:100;background:#28221b;padding:0 6vw;display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid rgba(244,239,230,0.08);}
+.nav-name{font-family:var(--sans);font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-link{font-family:var(--sans);font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;transition:opacity 0.2s;}
+.nav-link:hover{opacity:0.6;}
+.nav-cta{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);text-decoration:none;border:1px solid rgba(244,239,230,0.5);padding:8px 18px;transition:all 0.2s;border-radius:999px;}
+.nav-cta:hover{background:rgba(244,239,230,0.1);}
+
+/* PROJECT HEADER */
+.proj-header{padding:52px 6vw 40px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
+.back-link{font-family:var(--sans);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color 0.2s;margin-bottom:20px;}
+.back-link:hover{color:var(--gold);}
+.back-link::before{content:'←';}
+.proj-type{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+.proj-title{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7vw,8rem);line-height:0.96;color:var(--cream);}
+.proj-title em{font-style:italic;color:var(--gold);}
+.proj-tagline{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold);opacity:0.75;margin-top:16px;}
+.proj-meta-right{display:flex;flex-direction:column;gap:20px;align-items:flex-end;text-align:right;flex-shrink:0;}
+.proj-meta-item{display:flex;flex-direction:column;gap:4px;}
+.proj-meta-label{font-family:var(--sans);font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);}
+.proj-meta-val{font-family:var(--sans);font-size:0.82rem;color:var(--cream2);}
+
+/* VIDEO */
+.proj-video{background:#000;position:relative;width:100%;}
+.proj-video iframe{display:block;width:100%;aspect-ratio:16/9;border:none;}
+
+/* CONTENT */
+.proj-content{padding:80px 6vw;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:96px;align-items:start;}
+.proj-section-label{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;}
+.proj-section-title{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3vw,3rem);line-height:1.1;color:var(--cream);margin-bottom:24px;}
+.proj-section-title em{font-style:italic;color:var(--gold);}
+.proj-body{font-size:0.93rem;line-height:1.95;color:var(--cream2);margin-bottom:18px;}
+.proj-body strong{color:var(--cream);font-weight:500;}
+.proj-divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
+
+/* SIDEBAR */
+.proj-sidebar{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);}
+.sidebar-item{padding:20px 24px;border-bottom:1px solid var(--border);}
+.sidebar-item:last-child{border-bottom:none;}
+.sidebar-label{font-family:var(--sans);font-size:0.58rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:6px;}
+.sidebar-val{font-size:0.87rem;color:var(--cream2);line-height:1.5;}
+
+/* AWARDS */
+.awards{border:1px solid var(--border);margin-top:32px;}
+.award-item{display:grid;grid-template-columns:40px 1fr;align-items:center;border-bottom:1px solid var(--border);transition:background 0.2s;}
+.award-item:last-child{border-bottom:none;}
+.award-item:hover{background:rgba(244,239,230,0.02);}
+.award-icon{padding:16px 0 16px 16px;display:flex;align-items:center;justify-content:center;}
+.award-info{padding:16px 16px 16px 0;}
+.award-name{font-size:0.88rem;font-weight:500;color:var(--cream);margin-bottom:3px;}
+.award-detail{font-family:var(--sans);font-size:0.6rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);}
+
+/* FRAMES */
+.proj-frames{padding:0 6vw 80px;max-width:1200px;margin:0 auto;}
+.frames-label{font-family:var(--sans);font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:28px;padding-top:0;}
+.frames-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.frame{aspect-ratio:16/10;overflow:hidden;background:var(--bg2);position:relative;}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;}
+.frame:hover img{transform:scale(1.04);}
+.frame-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+
+/* NEXT PROJECT */
+.next-proj{border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;}
+.next-proj-item{padding:52px 6vw;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:background 0.3s;}
+.next-proj-item:hover{background:var(--bg2);}
+.next-proj-item+.next-proj-item{border-left:1px solid var(--border);}
+.next-proj-dir{font-family:var(--sans);font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);}
+.next-proj-name{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,2.5vw,2.4rem);color:var(--cream);}
+.next-proj-name em{font-style:italic;color:var(--gold);}
+.next-proj-type{font-family:var(--sans);font-size:0.65rem;color:var(--stone);}
+
+/* FOOTER */
+footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.footer-l{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream3);}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-family:var(--sans);font-size:0.65rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream3);text-decoration:none;transition:color 0.2s;}
+.footer-link:hover{color:var(--gold);}
+
+@media(max-width:960px){
+  .proj-content{grid-template-columns:1fr;gap:52px;}
+  .proj-header{flex-direction:column;align-items:flex-start;}
+  .proj-meta-right{align-items:flex-start;text-align:left;}
+  .next-proj{grid-template-columns:1fr;}
+  .next-proj-item+.next-proj-item{border-left:none;border-top:1px solid var(--border);}
+  .frames-grid{grid-template-columns:1fr 1fr;}
+  nav .nav-link:not(.nav-cta){display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <a href="apply.html">Turn your camera or iPhone into a career — Free strategy call ↓</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-name">Joel Bryant</a>
+  <div class="nav-links">
+    <a href="index.html#work" class="nav-link">Work</a>
+    <a href="index.html#about" class="nav-link">About</a>
+    <a href="index.html#inquire" class="nav-link">Inquire</a>
+    <a href="apply.html" class="nav-link nav-cta">Learn from me</a>
+  </div>
+</nav>
+
+<!-- PROJECT HEADER -->
+<div style="padding:40px 6vw 0;max-width:1200px;margin:0 auto;">
+  <a href="index.html#work" class="back-link">Back to work</a>
+</div>
+<div class="proj-header" style="max-width:none;">
+  <div style="padding-left:6vw;">
+    <p class="proj-type">Documentary · Festival Selected · 2025</p>
+    <h1 class="proj-title">Flowing <em>Wood.</em></h1>
+    
+  </div>
+  <div class="proj-meta-right" style="padding-right:6vw;">
+    <div class="proj-meta-item">
+      <span class="proj-meta-label">Director</span>
+      <span class="proj-meta-val">Joel Bryant</span>
+    </div>
+    <div class="proj-meta-item">
+      <span class="proj-meta-label">Year</span>
+      <span class="proj-meta-val">2025</span>
+    </div>
+    <div class="proj-meta-item">
+      <span class="proj-meta-label">Format</span>
+      <span class="proj-meta-val">Documentary Short</span>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="proj-video">
+  <iframe src="https://player.vimeo.com/video/1052845867?title=0&byline=0&portrait=0" title="Rogue Watches — Joel Bryant" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<!-- CONTENT -->
+<div class="proj-content">
+  <div>
+    <p class="proj-section-label">About the film</p>
+    <h2 class="proj-section-title">Ritual, warmth,<br>and <em>longing.</em></h2>
+    <p class="proj-body">A brand film for <strong>Rogue Watches</strong> — an Australian independent watch brand built on the idea that a timepiece should be as intentional as the life it measures. The brief was simple: show the watch the way it deserves to be seen.</p>
+    <p class="proj-body">Shot with a focus on texture, light, and the quiet details that define fine craftsmanship — this film was made to feel more like a short film than a commercial. Because that's what the product deserved.</p>
+
+    <hr class="proj-divider">
+
+    <p class="proj-section-label">The approach</p>
+    <p class="proj-body">Documentary-level craft applied to commercial work. Every frame considered. Every transition earned. The goal was to make something that didn't feel like advertising — something people would actually want to watch.</p>
+  </div>
+
+  <div>
+    <div class="proj-sidebar">
+      <div class="sidebar-item">
+        <p class="sidebar-label">Client</p>
+        <p class="sidebar-val">Craved This</p>
+      </div>
+      <div class="sidebar-item">
+        <p class="sidebar-label">Type</p>
+        <p class="sidebar-val">Brand Film · Food &amp; Lifestyle</p>
+      </div>
+      <div class="sidebar-item">
+        <p class="sidebar-label">Role</p>
+        <p class="sidebar-val">Director · Cinematographer · Editor</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT PROJECT -->
+<div class="next-proj">
+  <a href="index.html#work" class="next-proj-item">
+    <span class="next-proj-dir">Back to</span>
+    <span class="next-proj-name">All <em>work.</em></span>
+    <span class="next-proj-type">View the full portfolio</span>
+  </a>
+  <a href="apply.html" class="next-proj-item">
+    <span class="next-proj-dir">Work with Joel</span>
+    <span class="next-proj-name">Start a <em>project.</em></span>
+    <span class="next-proj-type">Inquire about a brand film</span>
+  </a>
+</div>
+
+<footer>
+  <span class="footer-l">© 2026 Joel Bryant</span>
+  <div class="footer-links">
+    <a href="https://instagram.com/joelbryant_" class="footer-link" target="_blank">Instagram</a>
+    <a href="index.html#inquire" class="footer-link">Inquire</a>
+    <a href="apply.html" class="footer-link" style="color:var(--gold);">Learn from me</a>
+  </div>
+</footer>
+
+</body>
+</html>
