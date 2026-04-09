@@ -243,12 +243,28 @@ select option{background:var(--bg2);color:var(--cream);}
 
 /* Success */
 .success{
-  display:none;text-align:center;padding:64px 0;
+  display:none;
+  max-width:680px;
+  margin:0 auto;
+  padding:0 24px 100px;
+  text-align:center;
   animation:fadeUp 0.5s ease forwards;
 }
-.success-icon{font-size:2rem;margin-bottom:16px;color:var(--gold);}
-.success h2{font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--cream);margin-bottom:12px;}
-.success p{font-size:0.9rem;color:var(--cream2);line-height:1.8;margin-bottom:32px;}
+.success-card{
+  background:var(--gold);
+  border-radius:12px;
+  padding:64px 48px;
+}
+.success-icon{font-size:2rem;margin-bottom:20px;color:#28221b;}
+.success h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:2.4rem;line-height:1.08;
+  color:#28221b;margin-bottom:16px;
+}
+.success p{
+  font-size:0.95rem;color:rgba(40,34,27,0.65);
+  line-height:1.8;margin-bottom:36px;
+}
 .success-btn{
   display:inline-block;
   background:#28221b;color:var(--cream);
@@ -260,6 +276,12 @@ select option{background:var(--bg2);color:var(--cream);}
   text-decoration:none;
 }
 .success-btn:hover{background:#3d3530;}
+.success-note{
+  margin-top:20px;
+  font-family:var(--sans);font-size:0.62rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(40,34,27,0.4);
+}
 
 /* Back */
 .back-wrap{text-align:center;padding:24px;}
@@ -580,11 +602,13 @@ select option{background:var(--bg2);color:var(--cream);}
     </div>
 
     <div class="success" id="successMsg" style="display:none;">
-      <div class="success-icon">✦</div>
-      <h2>Application received.</h2>
-      <p>One last step — book your free<br>discovery call with Joel below.</p>
-      <a href="https://calendly.com/joelbryant/discovery-call" target="_blank" class="success-btn">Book Your Discovery Call →</a>
-      <p class="disclaimer" style="margin-top:20px;">Free · 20 minutes · No obligation</p>
+      <div class="success-card">
+        <div class="success-icon">✦</div>
+        <h2>Application received.</h2>
+        <p>One last step — book your free<br>discovery call with Joel below.</p>
+        <a href="https://calendly.com/joelbryant/discovery-call" target="_blank" class="success-btn">Book Your Discovery Call →</a>
+        <p class="success-note">Free · 20 minutes · No obligation</p>
+      </div>
     </div>
   </div>
 
