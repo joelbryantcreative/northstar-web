@@ -412,6 +412,9 @@ section, .sec, .cred-strip, .learn-transition, footer,
 #tab-brand:checked ~ .wt-header label[for="tab-brand"]{background:var(--gold);color:var(--bg);}
 #tab-doc:checked ~ #wt-documentary{display:block;}
 #tab-brand:checked ~ #wt-brand{display:block;}
+.wt-blurb{font-family:var(--sans);font-size:0.88rem;color:var(--cream2);line-height:1.7;margin-bottom:40px;max-width:600px;display:none;}
+#tab-doc:checked ~ .wt-blurb-doc{display:block;}
+#tab-brand:checked ~ .wt-blurb-brand{display:block;}
 
 /* ── TWO-DOOR WORK ENTRY ── */
 .work-entry{background:var(--bg);border-top:1px solid var(--border);padding:120px 6vw;}
@@ -593,6 +596,9 @@ section, .sec, .cred-strip, .learn-transition, footer,
       </div>
     </div>
 
+    <p class="wt-blurb wt-blurb-doc">Long-form documentary films and authentic moments, where the real stories shine through.</p>
+    <p class="wt-blurb wt-blurb-brand">Brand films and commercial work for founders and businesses who understand that short-form storytelling is the best marketing.</p>
+
     <!-- ── DOCUMENTARY PANEL ── -->
     <div class="wt-panel" id="wt-documentary">
       <div class="film-cards">
@@ -669,33 +675,6 @@ section, .sec, .cred-strip, .learn-transition, footer,
     <div class="wt-panel" id="wt-brand">
       <div class="brand-grid">
 
-        <a href="craved-this-1.html" class="brand-card">
-          <div class="brand-card-img">
-            <img loading="lazy" decoding="async" src="images/Craved2-thumbnail.jpg" alt="Craved This I" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="brand-card-overlay"></div>
-            <span class="brand-card-type">Brand Film</span>
-          </div>
-          <div class="brand-card-body"><h3 class="brand-card-title">Craved This I</h3><p class="brand-card-desc">Aphrodisiac chocolate — dark, sensory, and unapologetically indulgent.</p></div>
-        </a>
-
-        <a href="craved-this-2.html" class="brand-card">
-          <div class="brand-card-img">
-            <img loading="lazy" decoding="async" src="images/Craved1-thumbnail.jpg" alt="Craved This II" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="brand-card-overlay"></div>
-            <span class="brand-card-type">Brand Film</span>
-          </div>
-          <div class="brand-card-body"><h3 class="brand-card-title">Craved This II</h3><p class="brand-card-desc">A second film — deepening the brand's world of ritual and desire.</p></div>
-        </a>
-
-        <a href="rogue-watches.html" class="brand-card">
-          <div class="brand-card-img">
-            <img loading="lazy" decoding="async" src="images/Rogue-placeholder.gif" alt="Rogue Watches" style="width:100%;height:100%;object-fit:cover;display:block;">
-            <div class="brand-card-overlay"></div>
-            <span class="brand-card-type">Commercial</span>
-          </div>
-          <div class="brand-card-body"><h3 class="brand-card-title">Rogue Watches</h3><p class="brand-card-desc">Australian independent watches — craft, precision, and time.</p></div>
-        </a>
-
         <a href="bytropic-nutrition.html" class="brand-card">
           <div class="brand-card-img">
             <img loading="lazy" decoding="async" src="images/Bytropic-placeholder.gif" alt="Bytropic Nutrition" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -712,6 +691,33 @@ section, .sec, .cred-strip, .learn-transition, footer,
             <span class="brand-card-type">Brand Film</span>
           </div>
           <div class="brand-card-body"><h3 class="brand-card-title">Fat Fish Bikes</h3><p class="brand-card-desc">Bikes, culture, and the freedom of the ride.</p></div>
+        </a>
+
+        <a href="rogue-watches.html" class="brand-card">
+          <div class="brand-card-img">
+            <img loading="lazy" decoding="async" src="images/Rogue-placeholder.gif" alt="Rogue Watches" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Commercial</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Rogue Watches</h3><p class="brand-card-desc">Australian independent watches — craft, precision, and time.</p></div>
+        </a>
+
+        <a href="craved-this-1.html" class="brand-card">
+          <div class="brand-card-img">
+            <img loading="lazy" decoding="async" src="images/Craved2-thumbnail.jpg" alt="Craved This I" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Craved This I</h3><p class="brand-card-desc">Aphrodisiac chocolate — dark, sensory, and unapologetically indulgent.</p></div>
+        </a>
+
+        <a href="craved-this-2.html" class="brand-card">
+          <div class="brand-card-img">
+            <img loading="lazy" decoding="async" src="images/Craved1-thumbnail.jpg" alt="Craved This II" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <div class="brand-card-overlay"></div>
+            <span class="brand-card-type">Brand Film</span>
+          </div>
+          <div class="brand-card-body"><h3 class="brand-card-title">Craved This II</h3><p class="brand-card-desc">A second film — deepening the brand's world of ritual and desire.</p></div>
         </a>
 
         <a href="grun-resort.html" class="brand-card">
