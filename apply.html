@@ -606,10 +606,10 @@ select option{background:var(--bg2);color:var(--cream);}
   <div id="successMsg" style="display:none;max-width:680px;margin:0 auto;padding:0 24px 100px;text-align:center;">
     <div style="background:#e6c385;border-radius:12px;padding:64px 48px;">
       <div style="font-size:2rem;margin-bottom:20px;color:#28221b;">✦</div>
-      <h2 style="font-family:'Canela Text',Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1.08;color:#28221b;margin-bottom:16px;">Application received.</h2>
-      <p style="font-size:0.95rem;color:rgba(40,34,27,0.65);line-height:1.6;margin-bottom:36px;white-space:nowrap;">One last step: book your free discovery call with Joel to see if you're the right fit.</p>
+      <h2 style="font-family:'Canela Text',Georgia,serif;font-weight:400;font-size:2.4rem;line-height:1.08;color:#28221b;margin-bottom:16px;">Application received —<br><em style="font-style:italic;">one last step.</em></h2>
+      <p style="font-size:0.95rem;color:rgba(40,34,27,0.65);line-height:1.6;margin-bottom:36px;">Book your free discovery call with Joel to see if you're the right fit.</p>
       <a href="https://calendly.com/joelbryant/discovery-call" target="_blank" style="display:inline-block;background:#28221b;color:#f4efe6;text-decoration:none;font-family:'SF Pro Display',system-ui,sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:18px 48px;border-radius:999px;">Book Your Discovery Call →</a>
-      <p style="margin-top:20px;font-family:'SF Pro Display',system-ui,sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(40,34,27,0.6);">15 minutes · A real conversation</p>
+      <p style="margin-top:20px;font-family:'SF Pro Display',system-ui,sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(40,34,27,0.6);">A 15-minute conversation to see where you're at</p>
     </div>
   </div>
 
@@ -645,6 +645,7 @@ function handleSubmit(e){
       document.querySelector('.bullets-grid').style.display = 'none';
       document.querySelector('.hero').style.paddingBottom = '0';
       document.querySelector('.hero-sub').style.marginBottom = '0';
+      document.querySelector('.form-section').style.paddingTop = '0';
       document.getElementById('successMsg').style.display = 'block';
       window.scrollTo({top:0, behavior:'smooth'});
     } else {
